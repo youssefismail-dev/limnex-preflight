@@ -1,0 +1,7 @@
+# Changes to these files need a code owner's review once branch protection has "Require review from Code Owners" on.
+# The ignore file accepts findings, so a change to it is a security decision (on pull requests the Action already reads it
+# from the base commit; a direct push still uses the branch's own copy). The rest decides what the Action runs.
+/.preflightignore         @youssefismail-dev
+/action.yml               @youssefismail-dev
+/action-constraints.txt   @youssefismail-dev
+/.github/                 @youssefismail-dev

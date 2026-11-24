@@ -1,0 +1,62 @@
+# Public Hugging Face repositories used for the false-positive evaluation.
+# Chosen by download ranking within each file format (small files only) plus several community repos,
+# because community uploads are where personal data is most likely to be found.
+# One repo id per line.
+
+# (pyannote/segmentation-3.0 and pyannote/speaker-diarization-community-1 were tried first but are gated: HTTP 401, so dropped)
+
+# --- PyTorch pickles (.bin / .pt / .pth / .ckpt)
+sshleifer/tiny-gpt2
+prajjwal1/bert-tiny
+google/bert_uncased_L-2_H-128_A-2
+pyannote/wespeaker-voxceleb-resnet34-LM
+timm/mobilenetv3_small_100.lamb_in1k
+Bingsu/adetailer
+hexgrad/Kokoro-82M
+coqui/XTTS-v2
+speechbrain/spkrec-ecapa-voxceleb
+BAAI/bge-m3
+facebook/esm2_t6_8M_UR50D
+nvidia/segformer-b0-finetuned-ade-512-512
+
+# --- safetensors (header only) and ONNX
+sentence-transformers/all-MiniLM-L6-v2
+cross-encoder/ms-marco-MiniLM-L6-v2
+Xenova/all-MiniLM-L6-v2
+google-bert/bert-base-uncased
+google-t5/t5-small
+openai-community/gpt2
+
+# --- Keras / HDF5
+gaurangdave/mnist_cnn
+Steenslid/ecg-ptbxl-classification
+tornet-ml/tornado_detector_baseline_v1
+julien-c/dummy-unknown
+
+# --- scikit-learn / joblib / pickle
+julien-c/wine-quality
+julien-c/skops-digits
+ptouch/phishing-distilbert-cyber207
+madhurjindal/autonlp-Gibberish-Detector-492513457
+Rakshi1/fake-news-detector
+community-repo-286
+
+# --- NumPy npz / npy
+KittenML/kitten-tts-nano-0.8-int8
+HumanCompatibleAI/ppo-seals-CartPole-v0
+
+# --- CatBoost
+CXu0630/mtg-price-catboost
+WillisBack/seattle-energy-catboost
+mki0809/geosearch-reranker
+
+# --- notebooks in model repos
+HuggingFaceTB/SmolLM3-3B
+community-repo-528
+comodoro/wav2vec2-xls-r-300m-cs-250
+mesolitica/wav2vec2-xls-r-300m-mixed
+
+# --- GGUF (first 16 MB only)
+audio-cpp/audio.cpp-gguf
+Serveurperso/YuE2-GGUF
+bartowski/SmolLM2-135M-Instruct-GGUF

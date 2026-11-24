@@ -1,0 +1,15 @@
+# Hook definition for people who use the scanner from another repository's .pre-commit-config.yaml.
+# Same options and the same default as the GitHub Action (and the CLI): --fail-on medium. Override through `args:` in your own config,
+# e.g. args: ["--fail-on", "medium", "--fail-on-incomplete", "--"]  (keep the trailing -- so file names starting with a dash work)
+- id: limnex-preflight
+  name: limnex-preflight (secrets, personal data and unsafe pickles in model files)
+  description: Statically scans staged model files before they are committed or published.
+  entry: limnex-preflight
+  language: python
+  pass_filenames: true
+  # Every file type the scanner handles by name (the extensions in limnex_preflight/scanner.py), in any case, plus .env
+  # files (.env, .env.local ...) and files without an extension (a pickle saved as "weights" is found by its content);
+  # tests/test_ci_files.py keeps the two in step. Pre-release test 2026-11-19 (F9): the old list skipped .env, .p, .py ...;
+  # test 2 (N12): Model.PKL, .env.local and "weights" were skipped. To pass every file, set files: '.*' in your config.
+  files: '(?i)(^|/)\.env(\.[^/]*)?$|(^|/)[^./]+$|\.(bin|bz2|cbm|cfg|ckpt|conf|dill|env|gguf|gz|h5|hdf5|ini|ipynb|jl|joblib|json|jsonl|keras|log|md|model|ndjson|npy|npz|onnx|p|pck|pickle|pkl|properties|pt|pth|py|safetensors|sav|sh|state|tar|tgz|toml|txt|whl|xz|ya?ml|zip)$'
+  args: ["--fail-on", "medium", "--"]

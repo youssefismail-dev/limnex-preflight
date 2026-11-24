@@ -1,0 +1,8 @@
+# The source distribution carries the package, its README, licence and changelog. The tests and the evaluation
+# need the repository's helpers and fixtures, so they stay in the repository (pre-release test 2026-11-19, F16:
+# the sdist shipped 22 test files without conftest.py or the helpers, so they could not run).
+include README.md LICENSE CHANGELOG.md
+prune tests
+prune evaluation
+prune examples
+global-exclude *.py[cod] __pycache__

@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "limnex-preflight"
+version = "0.1.0"
+description = "Scan ML model files for secrets, personal data and unsafe pickles before you publish them to Hugging Face, Kaggle or GitHub."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "youssefismail-dev" }]
+keywords = ["security", "secrets", "secret-scanning", "pickle", "pickle-scanner", "machine-learning", "model-security", "huggingface", "kaggle", "pytorch", "safetensors", "gguf", "onnx", "keras", "scanner", "privacy", "mlsecops"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Security",
+    "Development Status :: 3 - Alpha",
+]
+dependencies = []
+
+[project.optional-dependencies]
+# Structured HDF5/Keras attribute reading. Without it, HDF5 files are scanned as raw strings.
+hdf5 = ["h5py>=3.0"]
+test = ["pytest>=7", "pyyaml"]   # pyyaml: the check that no ${{ }} reaches a run: line (test 4, S11)
+dev = ["pytest>=7", "h5py>=3.0", "numpy", "onnx", "safetensors", "joblib", "scikit-learn", "pyyaml"]
+
+[project.scripts]
+limnex-preflight = "limnex_preflight.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/youssefismail-dev/limnex-preflight"
+Source = "https://github.com/youssefismail-dev/limnex-preflight"
+Issues = "https://github.com/youssefismail-dev/limnex-preflight/issues"
+Changelog = "https://github.com/youssefismail-dev/limnex-preflight/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+include = ["limnex_preflight*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

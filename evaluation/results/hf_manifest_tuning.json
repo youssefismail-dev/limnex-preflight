@@ -1,0 +1,2882 @@
+{
+ "BAAI/bge-m3": {
+  "downloads": 31032360,
+  "files": [
+   {
+    "bytes_downloaded": 191,
+    "mode": "full",
+    "partial": false,
+    "path": "1_Pooling/config.json",
+    "sha256": "e54c164a07274f2eb45bb724f54a79d1efcc90c41573887cd9a29aeee0597352",
+    "size_on_hub": 191
+   },
+   {
+    "bytes_downloaded": 15822,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "0b81ccf9134e5874d620a86e6905062ea999e779c34eb1a7e65eaeb7fe00e450",
+    "size_on_hub": 15822
+   },
+   {
+    "bytes_downloaded": 687,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "26159e7ad065073448460117eb24b7a4572f6f4e78eadff65dc0a11c052449fa",
+    "size_on_hub": 687
+   },
+   {
+    "bytes_downloaded": 123,
+    "mode": "full",
+    "partial": false,
+    "path": "config_sentence_transformers.json",
+    "sha256": "1eef72430e7194a1e59680e635aed81ffa083f05668dbc5bb1c56c04c0999c38",
+    "size_on_hub": 123
+   },
+   {
+    "bytes_downloaded": 349,
+    "mode": "full",
+    "partial": false,
+    "path": "modules.json",
+    "sha256": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+    "size_on_hub": 349
+   },
+   {
+    "bytes_downloaded": 698,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/config.json",
+    "sha256": "f24afd5de914fba8c668426c43d208a1a54022500c63b2c160be20891686fce8",
+    "size_on_hub": 698
+   },
+   {
+    "bytes_downloaded": 964,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/special_tokens_map.json",
+    "sha256": "8c785abebea9ae3257b61681b4e6fd8365ceafde980c21970d001e834cf10835",
+    "size_on_hub": 964
+   },
+   {
+    "bytes_downloaded": 1173,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/tokenizer_config.json",
+    "sha256": "7e4c1cc848840aeccdd763458c18dd525eb0f795c992e00ebe9c28554e7db2d4",
+    "size_on_hub": 1173
+   },
+   {
+    "bytes_downloaded": 54,
+    "mode": "full",
+    "partial": false,
+    "path": "sentence_bert_config.json",
+    "sha256": "eb9b44b13c0f52a3b3685c3b1cbdea1ba8b04bea123b98f61610048940776eb1",
+    "size_on_hub": 54
+   },
+   {
+    "bytes_downloaded": 964,
+    "mode": "full",
+    "partial": false,
+    "path": "special_tokens_map.json",
+    "sha256": "8c785abebea9ae3257b61681b4e6fd8365ceafde980c21970d001e834cf10835",
+    "size_on_hub": 964
+   },
+   {
+    "bytes_downloaded": 444,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "a62b2b6784f990259fddef5f16388693a8043be4f69179e6a5257eeb3f9abac4",
+    "size_on_hub": 444
+   },
+   {
+    "bytes_downloaded": 3516,
+    "mode": "full",
+    "partial": false,
+    "path": "sparse_linear.pt",
+    "sha256": "45c93804d2142b8f6d7ec6914ae23a1eee9c6a1d27d83d908a20d2afb3595ad9",
+    "size_on_hub": 3516
+   },
+   {
+    "bytes_downloaded": 724923,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model.onnx",
+    "sha256": "f84251230831afb359ab26d9fd37d5936d4d9bb5d1d5410e66442f630f24435b",
+    "size_on_hub": 724923
+   },
+   {
+    "bytes_downloaded": 2100674,
+    "mode": "full",
+    "partial": false,
+    "path": "colbert_linear.pt",
+    "sha256": "19bfbae397c2b7524158c919d0e9b19393c5639d098f0a66932c91ed8f5f9abb",
+    "size_on_hub": 2100674
+   }
+  ],
+  "sha": "5617a9f61b028005a4858fdac845db406aefb181"
+ },
+ "Bingsu/adetailer": {
+  "downloads": 9051174,
+  "files": [
+   {
+    "bytes_downloaded": 3962,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "59ec52fa92a41c1f70f872a8816f40cc50a5e4a9860334cd7c8f274948da9c78",
+    "size_on_hub": 3962
+   },
+   {
+    "bytes_downloaded": 6230011,
+    "mode": "full",
+    "partial": false,
+    "path": "face_yolov8n.pt",
+    "sha256": "70b640f8f60b1cf0dcc72f30caf3da9495eb2fb6509da48c53374ad6806e6a9c",
+    "size_on_hub": 6230011
+   },
+   {
+    "bytes_downloaded": 6237883,
+    "mode": "full",
+    "partial": false,
+    "path": "hand_yolov8n.pt",
+    "sha256": "3991202eb69e9ddcb3b9ba80cdeb41e734ffaf844403d6c9f47d515cd88c6f29",
+    "size_on_hub": 6237883
+   },
+   {
+    "bytes_downloaded": 6239036,
+    "mode": "full",
+    "partial": false,
+    "path": "face_yolov8n_v2.pt",
+    "sha256": "8f5f2110f83c4e00712993fab48c771d26036e2e80ec62bd5b9cb37c29e36b36",
+    "size_on_hub": 6239036
+   },
+   {
+    "bytes_downloaded": 6777003,
+    "mode": "full",
+    "partial": false,
+    "path": "person_yolov8n-seg.pt",
+    "sha256": "38fc8aaae97cb6e70be4ec44770005b26ed473471362afcda62a0037d7ccf432",
+    "size_on_hub": 6777003
+   },
+   {
+    "bytes_downloaded": 22507643,
+    "mode": "full",
+    "partial": false,
+    "path": "hand_yolov8s.pt",
+    "sha256": "70b540063fbc385736d8258970744a4afbc4cbf7932134bae3b24cdadeadec06",
+    "size_on_hub": 22507643
+   },
+   {
+    "bytes_downloaded": 22507707,
+    "mode": "full",
+    "partial": false,
+    "path": "face_yolov8s.pt",
+    "sha256": "c7237eff25787377de196961140ceaed324d859ee8de5a775d93d33a0e3fab78",
+    "size_on_hub": 22507707
+   },
+   {
+    "bytes_downloaded": 23850731,
+    "mode": "full",
+    "partial": false,
+    "path": "person_yolov8s-seg.pt",
+    "sha256": "53c54aec2239355faffc6c5b70d0f3d05042f386f956cbec39cec46ad456f050",
+    "size_on_hub": 23850731
+   },
+   {
+    "bytes_downloaded": 23852321,
+    "mode": "full",
+    "partial": false,
+    "path": "deepfashion2_yolov8s-seg.pt",
+    "sha256": "c319c15e86443ea61f70b40620909d737c47ff2a39381536503ac5c54772f8ac",
+    "size_on_hub": 23852321
+   }
+  ],
+  "sha": "53cc19de382014514d9d4038601d261a7faa9b7b"
+ },
+ "CXu0630/mtg-price-catboost": {
+  "downloads": 42,
+  "files": [
+   {
+    "bytes_downloaded": 5293,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "dd5e206dde3e6f5e5f0b281cfbfdb77ea8c63d2b9f8f68c854f7566137a54028",
+    "size_on_hub": 5293
+   },
+   {
+    "bytes_downloaded": 4052,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "aa62ebc19a29f99def9fc8e8e6956f6c20933ab9902df0aea1c1f6ca151fbfff",
+    "size_on_hub": 4052
+   },
+   {
+    "bytes_downloaded": 12884384,
+    "mode": "full",
+    "partial": false,
+    "path": "model.cbm",
+    "sha256": "4d29d2ab6cce0b40de5e2a6b29a64fed19c7f4fd723b76caef07ca1e6bd277de",
+    "size_on_hub": 12884384
+   }
+  ],
+  "sha": "82bd8fce04a82ea2341c8e0b685e3705ec8b5f7e"
+ },
+ "HuggingFaceTB/SmolLM3-3B": {
+  "downloads": 743150,
+  "files": [
+   {
+    "bytes_downloaded": 17452,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "24f16f90b883af3618425a589783a944356a7fc2e3cfa69b579c9ff06963e178",
+    "size_on_hub": 17452
+   },
+   {
+    "bytes_downloaded": 1915,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "c72b1031274ff4626e434d0019e88e95a767460135db9ee492eb80652b786af1",
+    "size_on_hub": 1915
+   },
+   {
+    "bytes_downloaded": 182,
+    "mode": "full",
+    "partial": false,
+    "path": "generation_config.json",
+    "sha256": "3458d62b3f9654f4bbe285223b0f4e5a1e67cae61c92bb6aeaadf04468bf9e01",
+    "size_on_hub": 182
+   },
+   {
+    "bytes_downloaded": 26899,
+    "mode": "full",
+    "partial": false,
+    "path": "model.safetensors.index.json",
+    "sha256": "e3a7254c086c4a78f95ad5864f435d165ffed1ed8998326ce5107b4423c15b76",
+    "size_on_hub": 26899
+   },
+   {
+    "bytes_downloaded": 317457,
+    "mode": "full",
+    "partial": false,
+    "path": "notebook.ipynb",
+    "sha256": "2ecd8333659d597e1a75da6de90c33a62a445742796bf2a24c513696be87cdcd",
+    "size_on_hub": 317457
+   },
+   {
+    "bytes_downloaded": 289,
+    "mode": "full",
+    "partial": false,
+    "path": "special_tokens_map.json",
+    "sha256": "12403efb970f069ba62ddf3b66166a27254be4a198166b61ad1ee604bd3a4515",
+    "size_on_hub": 289
+   },
+   {
+    "bytes_downloaded": 50387,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "59a64b39f05ee0acf7479bbccf99a44d9e481c1a4a494eb03838ae3c35eb29be",
+    "size_on_hub": 50387
+   },
+   {
+    "bytes_downloaded": 29952,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model-00001-of-00002.safetensors",
+    "sha256": "5aa88ed75565c682f36daf0ebd6f53440afcfd896266f18c1382b0868f05c015",
+    "size_on_hub": 4966315264
+   },
+   {
+    "bytes_downloaded": 7808,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model-00002-of-00002.safetensors",
+    "sha256": "90fa53269e430505861eca505400f08d043aaffa3744a8dd3806a667dd1a7617",
+    "size_on_hub": 1183919744
+   }
+  ],
+  "sha": "a07cc9a04f16550a088caea529712d1d335b0ac1"
+ },
+ "HumanCompatibleAI/ppo-seals-CartPole-v0": {
+  "downloads": 223593,
+  "files": [
+   {
+    "bytes_downloaded": 2715,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "11749c4f72ca1891bb4b0eb19d14487c3bc74b3571b369d1aaabba937bae1974",
+    "size_on_hub": 2715
+   },
+   {
+    "bytes_downloaded": 1230,
+    "mode": "full",
+    "partial": false,
+    "path": "args.yml",
+    "sha256": "f0ef456cd9d224012eb2a9a6ceb443739b2043994594008e3849a732b13c5fcb",
+    "size_on_hub": 1230
+   },
+   {
+    "bytes_downloaded": 624,
+    "mode": "full",
+    "partial": false,
+    "path": "config.yml",
+    "sha256": "1035a0bd74c4d13108baeb2b91fdaf7186a3309209fee749b1841e87fcc827d3",
+    "size_on_hub": 624
+   },
+   {
+    "bytes_downloaded": 23,
+    "mode": "full",
+    "partial": false,
+    "path": "env_kwargs.yml",
+    "sha256": "6cd481cf61c7e9f12cc87e595cf73e984f5ab4f783baaeb431f22fe1a040638e",
+    "size_on_hub": 23
+   },
+   {
+    "bytes_downloaded": 266,
+    "mode": "full",
+    "partial": false,
+    "path": "ppo-seals-CartPole-v0/system_info.txt",
+    "sha256": "2d7b8ee71b5b1966a8945319e07d1a5baa8564cb3f51f0edd415c617dfbe9f1f",
+    "size_on_hub": 266
+   },
+   {
+    "bytes_downloaded": 137,
+    "mode": "full",
+    "partial": false,
+    "path": "results.json",
+    "sha256": "639fdd7d75c002cc11d7f7609b2714973842ab165aa16f2203a8e4f75082f4f6",
+    "size_on_hub": 137
+   },
+   {
+    "bytes_downloaded": 431,
+    "mode": "full",
+    "partial": false,
+    "path": "ppo-seals-CartPole-v0/pytorch_variables.pth",
+    "sha256": "d030ad8db708280fcae77d87e973102039acd23a11bdecc3db8eb6c0ac940ee1",
+    "size_on_hub": 431
+   },
+   {
+    "bytes_downloaded": 40641,
+    "mode": "full",
+    "partial": false,
+    "path": "ppo-seals-CartPole-v0/policy.pth",
+    "sha256": "6db5d09a0139e686bcea8d28033d45282a219872cdf9615bd34f323321953549",
+    "size_on_hub": 40641
+   },
+   {
+    "bytes_downloaded": 82425,
+    "mode": "full",
+    "partial": false,
+    "path": "ppo-seals-CartPole-v0/policy.optimizer.pth",
+    "sha256": "40da409386ebbb12b110342c54781f79f6bb75a7011b5c77349fc23803476222",
+    "size_on_hub": 82425
+   },
+   {
+    "bytes_downloaded": 204926,
+    "mode": "full",
+    "partial": false,
+    "path": "rollouts.npz",
+    "sha256": "435cf0d5ed739442548a8c24abda6a24a63d2414abd8d0f9ba7cb70b86cf943a",
+    "size_on_hub": 204926
+   }
+  ],
+  "sha": "a86541dd3744275227cb16d07192967fc6b7775e"
+ },
+ "KittenML/kitten-tts-nano-0.8-int8": {
+  "downloads": 161591,
+  "files": [
+   {
+    "bytes_downloaded": 741,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "ff39adbcb653e9beaa612b405c4e301ee62eb4201b32dd77ae36f4078537b8ef",
+    "size_on_hub": 741
+   },
+   {
+    "bytes_downloaded": 688,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "b66006ccbeccd4de5fc3c9272059c47f5725df7215fd889785c03602652fab64",
+    "size_on_hub": 688
+   },
+   {
+    "bytes_downloaded": 3278902,
+    "mode": "full",
+    "partial": false,
+    "path": "voices.npz",
+    "sha256": "8aa7cee235abb0739cb51e6559685f65a4dacd95568833d05699b1633f519b3f",
+    "size_on_hub": 3278902
+   },
+   {
+    "bytes_downloaded": 24369971,
+    "mode": "full",
+    "partial": false,
+    "path": "kitten_tts_nano_v0_8.onnx",
+    "sha256": "f7b0afcbee92870b32b8e0276d855b954dc25470c9f051b376ac7eee537c76fc",
+    "size_on_hub": 24369971
+   }
+  ],
+  "sha": "84781d74e29ee25217551556398b42f80593a813"
+ },
+ "Rakshi1/fake-news-detector": {
+  "downloads": 57,
+  "files": [
+   {
+    "bytes_downloaded": 4948,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "00299f8722f1d0f917ee83351639b32912f86ca8c3e79c0396adfef023fe9fab",
+    "size_on_hub": 4948
+   },
+   {
+    "bytes_downloaded": 10252,
+    "mode": "full",
+    "partial": false,
+    "path": "notebooks/fake_news_detection.ipynb",
+    "sha256": "d442bde670a516bd958b573b78c12457253b0b9b814a07b8c0183dd19c3ffe6f",
+    "size_on_hub": 10252
+   },
+   {
+    "bytes_downloaded": 1171,
+    "mode": "full",
+    "partial": false,
+    "path": "reports/metrics.json",
+    "sha256": "d9b3c4a9ae9190fb162ba48fdecef994ab61e65d8eff5e6a323244fd03bceecf",
+    "size_on_hub": 1171
+   },
+   {
+    "bytes_downloaded": 272,
+    "mode": "full",
+    "partial": false,
+    "path": "requirements.txt",
+    "sha256": "e9ce12b749f8524eb95aae968e602659d0a17299bb47a5639b8ba5292002177d",
+    "size_on_hub": 272
+   },
+   {
+    "bytes_downloaded": 1453822,
+    "mode": "full",
+    "partial": false,
+    "path": "models/tokenizer.pickle",
+    "sha256": "4eb0cf51e6120fc4fca631ec2b3e93aced368a4faf928b79e592ffdf943ff75c",
+    "size_on_hub": 1453822
+   },
+   {
+    "bytes_downloaded": 31343799,
+    "mode": "full",
+    "partial": false,
+    "path": "models/fake_news_lstm.keras",
+    "sha256": "3c50bd1f7e3b11977918196809647d25edbaa1dcf12de5c185f3cea7eb7de8d8",
+    "size_on_hub": 31343799
+   }
+  ],
+  "sha": "3b1ac44b2ebdbb2d2c889fdb050bf73461ce987d"
+ },
+ "Serveurperso/YuE2-GGUF": {
+  "downloads": 5230662,
+  "files": [
+   {
+    "bytes_downloaded": 10678,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "a774688993232a6a4456640091ea31acae907f6596de42cb6cc7ccedcacf5551",
+    "size_on_hub": 10678
+   },
+   {
+    "bytes_downloaded": 16777216,
+    "mode": "gguf",
+    "partial": true,
+    "path": "yue2-mothersuperior-realaudio-tokenizer-v4-Q8_0.gguf",
+    "sha256": "56d21a2e5e65cc3a3bb07b4282f9d7c4d4096435fc79d11a53c6e7b8a8c4ef7e",
+    "size_on_hub": 46527328
+   },
+   {
+    "bytes_downloaded": 16777216,
+    "mode": "gguf",
+    "partial": true,
+    "path": "SheetSage2-Q8_0.gguf",
+    "sha256": "31f37ddc1d87ffe534fca3770ac0ee40cdd7313b616a7e1bffda352946f7d68a",
+    "size_on_hub": 105629856
+   }
+  ],
+  "sha": "e630f2b8f6aedf8254c3186438633c1b5eeaf80a"
+ },
+ "Steenslid/ecg-ptbxl-classification": {
+  "downloads": 18631,
+  "files": [
+   {
+    "bytes_downloaded": 1331,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "8c88cfc43c5a085450cd454150732a8aae46143a12ace7e7d60241110a37cc5a",
+    "size_on_hub": 1331
+   },
+   {
+    "bytes_downloaded": 121,
+    "mode": "full",
+    "partial": false,
+    "path": "thresholds.json",
+    "sha256": "cbbee0431cd092fb81043cb4f274ed2213f48b21464c0ff505b25d965104ecce",
+    "size_on_hub": 121
+   },
+   {
+    "bytes_downloaded": 596,
+    "mode": "full",
+    "partial": false,
+    "path": "normalisation_params.npz",
+    "sha256": "9a496322e40c88f8a8657ff18e04dbe2bc1455eba6d041cfe823f5f9d31cfce3",
+    "size_on_hub": 596
+   },
+   {
+    "bytes_downloaded": 7271200,
+    "mode": "full",
+    "partial": false,
+    "path": "ecg_cnn_final.keras",
+    "sha256": "c38d6456d8f004a56fec3c058ebc49c0aa5300c8b873c1d8957213c0ed1bbd81",
+    "size_on_hub": 7271200
+   },
+   {
+    "bytes_downloaded": 8432243,
+    "mode": "full",
+    "partial": false,
+    "path": "ecg_model.keras",
+    "sha256": "3f2cdde86cb8fd2627f663ee620ebcc98e2d4f5470a70d07e6127ca3d480e51d",
+    "size_on_hub": 8432243
+   }
+  ],
+  "sha": "ce86c40244a8f9df95b2274ccc1ed1ccfc2c13a6"
+ },
+ "WillisBack/seattle-energy-catboost": {
+  "downloads": 22,
+  "files": [
+   {
+    "bytes_downloaded": 12236,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "29664364eaba0aa42a4a942f43a770ef6dd3ddc740021704c51d09a38a2d5362",
+    "size_on_hub": 12236
+   },
+   {
+    "bytes_downloaded": 2409,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "ff2887dbcb0540e27078e787b94677dbf592f7a43838a4bdda626fb38b4df563",
+    "size_on_hub": 2409
+   },
+   {
+    "bytes_downloaded": 903,
+    "mode": "full",
+    "partial": false,
+    "path": "data/scores.json",
+    "sha256": "140f8f9536955f3ebec8b4bc72d2c703f0c7ab4dd87806b6a46fe1c02f23cea7",
+    "size_on_hub": 903
+   },
+   {
+    "bytes_downloaded": 122,
+    "mode": "full",
+    "partial": false,
+    "path": "data/version.json",
+    "sha256": "0ed7310a96e27189ed66d33ba9a42e0a54e50c381efe39ec30ebdc2e2f0754c1",
+    "size_on_hub": 122
+   },
+   {
+    "bytes_downloaded": 264840,
+    "mode": "full",
+    "partial": false,
+    "path": "data/energy.cbm",
+    "sha256": "1b08733e4d951b2d20a6788efca41312a1d6f96da12e90ca4325e28e2c72ff72",
+    "size_on_hub": 264840
+   },
+   {
+    "bytes_downloaded": 634000,
+    "mode": "full",
+    "partial": false,
+    "path": "data/emissions.cbm",
+    "sha256": "90a60770866f9ae98b6fee0ac4ba2a3b50a9ef56a29d6dc21c2150fef95df3d2",
+    "size_on_hub": 634000
+   }
+  ],
+  "sha": "629ad5a6dc700461f36636112a8094c5a8b88845"
+ },
+ "Xenova/all-MiniLM-L6-v2": {
+  "downloads": 4516147,
+  "files": [
+   {
+    "bytes_downloaded": 1767,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "63ea99bf681a2e9eda4f6a537d5ed8fda95d1677111656da37e9cfd080c3af02",
+    "size_on_hub": 1767
+   },
+   {
+    "bytes_downloaded": 650,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "7135149f7cffa1a573466c6e4d8423ed73b62fd2332c575bf738a0d033f70df7",
+    "size_on_hub": 650
+   },
+   {
+    "bytes_downloaded": 125,
+    "mode": "full",
+    "partial": false,
+    "path": "special_tokens_map.json",
+    "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+    "size_on_hub": 125
+   },
+   {
+    "bytes_downloaded": 711661,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer.json",
+    "sha256": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
+    "size_on_hub": 711661
+   },
+   {
+    "bytes_downloaded": 366,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+    "size_on_hub": 366
+   },
+   {
+    "bytes_downloaded": 231508,
+    "mode": "full",
+    "partial": false,
+    "path": "vocab.txt",
+    "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+    "size_on_hub": 231508
+   },
+   {
+    "bytes_downloaded": 22845806,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_uint8.onnx",
+    "sha256": "57097fb267dcffb2a9f12fba945201c76ae99b7640ed1c6389cc9e0341c71ee6",
+    "size_on_hub": 22845806
+   },
+   {
+    "bytes_downloaded": 22972370,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_int8.onnx",
+    "sha256": "afdb6f1a0e45b715d0bb9b11772f032c399babd23bfc31fed1c170afc848bdb1",
+    "size_on_hub": 22972370
+   },
+   {
+    "bytes_downloaded": 22972370,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_quantized.onnx",
+    "sha256": "afdb6f1a0e45b715d0bb9b11772f032c399babd23bfc31fed1c170afc848bdb1",
+    "size_on_hub": 22972370
+   },
+   {
+    "bytes_downloaded": 30018257,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_q4f16.onnx",
+    "sha256": "eb08a666c46109637e0b6cb04f6052a68efd59bb0252d4e0438d28fb6b2d853d",
+    "size_on_hub": 30018257
+   },
+   {
+    "bytes_downloaded": 45297825,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_fp16.onnx",
+    "sha256": "2cdb5e58291813b6d6e248ed69010100246821a367fa17b1b81ae9483744533d",
+    "size_on_hub": 45297825
+   },
+   {
+    "bytes_downloaded": 53915448,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_bnb4.onnx",
+    "sha256": "106c4807d85ceaf3590d9da9c07b3a22ded29bcc0d47333da0b1b741410eb128",
+    "size_on_hub": 53915448
+   },
+   {
+    "bytes_downloaded": 54578772,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_q4.onnx",
+    "sha256": "ac0f989345605769651a18bb796fda6235d921a37bd4ac065cb51781da44d079",
+    "size_on_hub": 54578772
+   }
+  ],
+  "sha": "751bff37182d3f1213fa05d7196b954e230abad9"
+ },
+ "audio-cpp/audio.cpp-gguf": {
+  "downloads": 6584182,
+  "files": [
+   {
+    "bytes_downloaded": 826,
+    "mode": "full",
+    "partial": false,
+    "path": "AST-AudioSet-GGUF/README.md",
+    "sha256": "9ff4d92de30828c184ed14643f6bd9bdbc92398d14cc5e496b4281dbf692a0bb",
+    "size_on_hub": 826
+   },
+   {
+    "bytes_downloaded": 1590,
+    "mode": "full",
+    "partial": false,
+    "path": "Canary-180M-Flash-GGUF/README.md",
+    "sha256": "939885640c0b8f321822ba844207daf8324e67774ea326a27d7016c480b14c32",
+    "size_on_hub": 1590
+   },
+   {
+    "bytes_downloaded": 17784,
+    "mode": "full",
+    "partial": false,
+    "path": "CrisperWhisper2.0-GGUF/LICENSE.md",
+    "sha256": "42f43bf4dc72ef422f91f6ca143f4514e21a68b353940d99091c1addcd0aee79",
+    "size_on_hub": 17784
+   },
+   {
+    "bytes_downloaded": 3829,
+    "mode": "full",
+    "partial": false,
+    "path": "CrisperWhisper2.0-GGUF/README.md",
+    "sha256": "78ee08498ca489572f20661da2c0b7cd8defec02dbb3a0be8c98678c43edc7d9",
+    "size_on_hub": 3829
+   },
+   {
+    "bytes_downloaded": 585,
+    "mode": "full",
+    "partial": false,
+    "path": "Fun-ASR-Nano-2512-GGUF/MANIFEST.json",
+    "sha256": "6b797b3b4a124e61abe1495b99916c33c03282dca36254622f629651195638f9",
+    "size_on_hub": 585
+   },
+   {
+    "bytes_downloaded": 2296,
+    "mode": "full",
+    "partial": false,
+    "path": "Fun-ASR-Nano-2512-GGUF/README.md",
+    "sha256": "5b8174dd691c0c7281a5431f78bc0fe9323248c75f6223656040418b90e35670",
+    "size_on_hub": 2296
+   },
+   {
+    "bytes_downloaded": 11358,
+    "mode": "full",
+    "partial": false,
+    "path": "Hviske-v6-GGUF/LICENSES/Apache-2.0.txt",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "size_on_hub": 11358
+   },
+   {
+    "bytes_downloaded": 1063,
+    "mode": "full",
+    "partial": false,
+    "path": "Hviske-v6-GGUF/LICENSES/MIT-Whisper.txt",
+    "sha256": "b5d65a59060e68c4ff940e1eddfa6f94b2d68fdf58ed7f4dd57721c997e35e9d",
+    "size_on_hub": 1063
+   },
+   {
+    "bytes_downloaded": 6929,
+    "mode": "full",
+    "partial": false,
+    "path": "Hviske-v6-GGUF/README.md",
+    "sha256": "96d4ddf4f82f951c96a613adc1976aaad2039643c85be28a80c0bca139c83070",
+    "size_on_hub": 6929
+   },
+   {
+    "bytes_downloaded": 979,
+    "mode": "full",
+    "partial": false,
+    "path": "KittenTTS-GGUF/README.md",
+    "sha256": "a352ae26bd8e8aa04df8bbb0cdc5d497b85a1c4047830fcf66db6e0a5d825440",
+    "size_on_hub": 979
+   },
+   {
+    "bytes_downloaded": 1377,
+    "mode": "full",
+    "partial": false,
+    "path": "KugelAudio-0-Open-GGUF/README.md",
+    "sha256": "7f3f6a5ffb05c33892a9b90d967fbb6ac68fb6de0d322d8609db42b56b0744fc",
+    "size_on_hub": 1377
+   },
+   {
+    "bytes_downloaded": 19347,
+    "mode": "full",
+    "partial": false,
+    "path": "MMS-Forced-Aligner-GGUF/LICENSE.CC-BY-NC-4.0.txt",
+    "sha256": "41003d4a74749c0220e33dd415042164b5a1093ed401f36277234f772d22d3d0",
+    "size_on_hub": 19347
+   },
+   {
+    "bytes_downloaded": 2690,
+    "mode": "full",
+    "partial": false,
+    "path": "MMS-Forced-Aligner-GGUF/README.upstream.md",
+    "sha256": "e1ecaf916f9be25bdb2bb012699a5f2d37d1f1f4f5a0ec7e4ad4a311b59ce97f",
+    "size_on_hub": 2690
+   },
+   {
+    "bytes_downloaded": 3820,
+    "mode": "full",
+    "partial": false,
+    "path": "MOSS-Transcribe-Diarize-GGUF/README.md",
+    "sha256": "3b3b96aca413514c117b589728496f01e9de010920baf6afc2ce6ea040bf2f40",
+    "size_on_hub": 3820
+   },
+   {
+    "bytes_downloaded": 1580,
+    "mode": "full",
+    "partial": false,
+    "path": "Maya1-GGUF/README.md",
+    "sha256": "db4a96a17a2ff750633e8fad7c7e9e877ec90b4e252f2d1c71b023d8b21481e6",
+    "size_on_hub": 1580
+   },
+   {
+    "bytes_downloaded": 5499,
+    "mode": "full",
+    "partial": false,
+    "path": "MiniMax-H3-Q4-GGUF/FL2VA/processor/chat_template.json",
+    "sha256": "5c72a170d2a4a1a3bc5adad2e689ae28138a9700e5b8c96c0266331e86c0acce",
+    "size_on_hub": 5499
+   },
+   {
+    "bytes_downloaded": 1671839,
+    "mode": "full",
+    "partial": false,
+    "path": "MiniMax-H3-Q4-GGUF/FL2VA/processor/merges.txt",
+    "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+    "size_on_hub": 1671839
+   },
+   {
+    "bytes_downloaded": 390,
+    "mode": "full",
+    "partial": false,
+    "path": "MiniMax-H3-Q4-GGUF/FL2VA/processor/preprocessor_config.json",
+    "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+    "size_on_hub": 390
+   },
+   {
+    "bytes_downloaded": 11003,
+    "mode": "full",
+    "partial": false,
+    "path": "MiniMax-H3-Q4-GGUF/FL2VA/processor/tokenizer_config.json",
+    "sha256": "a07e942ac874baa13758de8d1fbdb186683cc03416b5589e1b6671c6b3057c68",
+    "size_on_hub": 11003
+   },
+   {
+    "bytes_downloaded": 385,
+    "mode": "full",
+    "partial": false,
+    "path": "MiniMax-H3-Q4-GGUF/FL2VA/processor/video_preprocessor_config.json",
+    "sha256": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13",
+    "size_on_hub": 385
+   },
+   {
+    "bytes_downloaded": 2776833,
+    "mode": "full",
+    "partial": false,
+    "path": "MiniMax-H3-Q4-GGUF/FL2VA/processor/vocab.json",
+    "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "size_on_hub": 2776833
+   },
+   {
+    "bytes_downloaded": 34,
+    "mode": "full",
+    "partial": false,
+    "path": "MiniMax-H3-Q4-GGUF/configuration.json",
+    "sha256": "5a10ab279cf9fe25d65a1813f0785c08e33d9db550053ae5f8456cdfa44b87c6",
+    "size_on_hub": 34
+   },
+   {
+    "bytes_downloaded": 4940,
+    "mode": "full",
+    "partial": false,
+    "path": "MossFormer2-GGUF/README.md",
+    "sha256": "7b24359cd48e0bc47744d952dfd1b0f2cd35632ba53804d1cfef1f6ef2128306",
+    "size_on_hub": 4940
+   },
+   {
+    "bytes_downloaded": 1427,
+    "mode": "full",
+    "partial": false,
+    "path": "Niagara-ASR-GGUF/README.md",
+    "sha256": "b7287ab29e7adf87af96dba6fb60e82132fcbde9e541aa5138eb28517732dc90",
+    "size_on_hub": 1427
+   },
+   {
+    "bytes_downloaded": 3999,
+    "mode": "full",
+    "partial": false,
+    "path": "OWSM-CTC-GGUF/README.md",
+    "sha256": "c632d3d2b98d30c97c4afbcb551e1d599211bc74dc2b5ff4443f900f23fef2f7",
+    "size_on_hub": 3999
+   },
+   {
+    "bytes_downloaded": 8955,
+    "mode": "full",
+    "partial": false,
+    "path": "OWSM-GGUF/README.md",
+    "sha256": "2a82f987ffa2c9a87f19c1585794cd5cef3965056f0cef790c899496f324697d",
+    "size_on_hub": 8955
+   },
+   {
+    "bytes_downloaded": 2155,
+    "mode": "full",
+    "partial": false,
+    "path": "OpenWakeWord-GGUF/README.md",
+    "sha256": "658109f890493181b8b0934f62347272dd8b09cf56599ea8f3227200743763c4",
+    "size_on_hub": 2155
+   },
+   {
+    "bytes_downloaded": 11358,
+    "mode": "full",
+    "partial": false,
+    "path": "Phonon-2-GGUF/LICENSE-CODE-Apache-2.0.txt",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "size_on_hub": 11358
+   },
+   {
+    "bytes_downloaded": 18657,
+    "mode": "full",
+    "partial": false,
+    "path": "Phonon-2-GGUF/LICENSE-WEIGHTS-CC-BY-4.0.txt",
+    "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+    "size_on_hub": 18657
+   },
+   {
+    "bytes_downloaded": 667,
+    "mode": "full",
+    "partial": false,
+    "path": "Piper-TTS-GGUF/README.md",
+    "sha256": "3b91d78899e6831158f6b77e93651ee5d99011a0c9ac6451dbfeec881326ddc4",
+    "size_on_hub": 667
+   },
+   {
+    "bytes_downloaded": 5305,
+    "mode": "full",
+    "partial": false,
+    "path": "Plapre-3-GGUF/README.md",
+    "sha256": "a35405bd4be744681e4d1663ae620cb10a372982bb40cc79f3ceae0e6871474f",
+    "size_on_hub": 5305
+   },
+   {
+    "bytes_downloaded": 12492,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "7946c3119d4813dc493f7c0a002053546230135010875c37a7ca9a276ba0a6fd",
+    "size_on_hub": 12492
+   },
+   {
+    "bytes_downloaded": 1142,
+    "mode": "full",
+    "partial": false,
+    "path": "Samsone-GGUF/README.md",
+    "sha256": "472c8222b4927b8ce18923842c07bc0567dc35aa011b34086eb49e1c06af4a76",
+    "size_on_hub": 1142
+   },
+   {
+    "bytes_downloaded": 3419,
+    "mode": "full",
+    "partial": false,
+    "path": "TF-GridNet-GGUF/README.md",
+    "sha256": "f045c5f4ac64b61ce35f2685f3225a915d4949cc245c481b645b8013a8f25863",
+    "size_on_hub": 3419
+   },
+   {
+    "bytes_downloaded": 7504,
+    "mode": "full",
+    "partial": false,
+    "path": "Voxtral-4B-TTS-2603-GGUF/README.md",
+    "sha256": "2c63f75784eddcc63d73bfc867e37402429250b2f4bf7b80344998654b3f7472",
+    "size_on_hub": 7504
+   },
+   {
+    "bytes_downloaded": 5875,
+    "mode": "full",
+    "partial": false,
+    "path": "Voxtral-Mini-4B-Realtime-2602-GGUF/README.md",
+    "sha256": "5f7df695bc713ebd5bbae5b5c15bcf04070a9bea2cda556dc565b005e4a948a5",
+    "size_on_hub": 5875
+   },
+   {
+    "bytes_downloaded": 1224,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "PocketTTS-GGUF/english/embeddings/alba.safetensors",
+    "sha256": "f7e3a8d5c5c24e9b539e0d6a94813b20476c1df993da5c59dd7bbaa68a1a6d1b",
+    "size_on_hub": 6194424
+   },
+   {
+    "bytes_downloaded": 1224,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "PocketTTS-GGUF/english/embeddings/anna.safetensors",
+    "sha256": "c15b6fae94761d60da0d9d99e2b2792f189e9127d51f6d1f1c54e380e6116e48",
+    "size_on_hub": 7816440
+   },
+   {
+    "bytes_downloaded": 1224,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "PocketTTS-GGUF/english/embeddings/azelma.safetensors",
+    "sha256": "b1f5c5ed312daa823894b8ad606599e98ac4264c66e1a343e0a1c293a47af19e",
+    "size_on_hub": 7963896
+   },
+   {
+    "bytes_downloaded": 1224,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "PocketTTS-GGUF/english/embeddings/bill_boerst.safetensors",
+    "sha256": "7b1b3e9f5c6c620fba20ed8157b6d8427c6c450fa9d7b6cfc455c04968351800",
+    "size_on_hub": 6735096
+   },
+   {
+    "bytes_downloaded": 81408,
+    "mode": "gguf",
+    "partial": false,
+    "path": "PulseVAD-GGUF/pulsevad-2.1k-f32.gguf",
+    "sha256": "0f7e6e897d1d380489e09ffaffc07b1f8396a2d1dac9ba3664512c816c5908bd",
+    "size_on_hub": 81408
+   },
+   {
+    "bytes_downloaded": 187264,
+    "mode": "gguf",
+    "partial": false,
+    "path": "MicroWakeWord-GGUF/micro-wake-word-okay-nabu-f32.gguf",
+    "sha256": "8ad059f6312cc1db68d9f748d4fb6251717f48baef94d0b7527192d59ec206ca",
+    "size_on_hub": 187264
+   }
+  ],
+  "sha": "d81ea87066e0b48ddfc7ef3fc7254ad230d45faa"
+ },
+ "bartowski/SmolLM2-135M-Instruct-GGUF": {
+  "downloads": 50058,
+  "files": [
+   {
+    "bytes_downloaded": 10039,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "09b1f05942d11f5c47aac9789dde6fa8e431cdd541028532a7fb6f1c0e63d939",
+    "size_on_hub": 10039
+   },
+   {
+    "bytes_downloaded": 16777216,
+    "mode": "gguf",
+    "partial": true,
+    "path": "SmolLM2-135M-Instruct-IQ3_XS.gguf",
+    "sha256": "7d60027a56db0a6d311114382683ee318ff0383cd5028eee4360412e83b43233",
+    "size_on_hub": 88202080
+   },
+   {
+    "bytes_downloaded": 16777216,
+    "mode": "gguf",
+    "partial": true,
+    "path": "SmolLM2-135M-Instruct-Q2_K.gguf",
+    "sha256": "a656fc97467d88eca7037793298c360e10bd8f693680608c8571f49a50cca0ae",
+    "size_on_hub": 88202080
+   }
+  ],
+  "sha": "09816acd5d99df7be770d85ea30822623dab342c"
+ },
+ "community-repo-286": {
+  "downloads": null,
+  "files": [],
+  "pseudonymised": true,
+  "sha": null
+ },
+ "community-repo-528": {
+  "downloads": null,
+  "files": [],
+  "pseudonymised": true,
+  "sha": null
+ },
+ "comodoro/wav2vec2-xls-r-300m-cs-250": {
+  "downloads": 1456447,
+  "files": [
+   {
+    "bytes_downloaded": 361653,
+    "mode": "full",
+    "partial": false,
+    "path": "Fine_Tune_XLS_R_on_Common_Voice_cs_300m_CV8.ipynb",
+    "sha256": "4b96bfb7f7757e619ad783c141f5257211244fa99cc9f6f6163c280730483de9",
+    "size_on_hub": 361653
+   },
+   {
+    "bytes_downloaded": 7212,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "abe20a3f47cb1f93c16ecb5dc6643436ecacc8267b87bdc770acf4de2224d6c3",
+    "size_on_hub": 7212
+   },
+   {
+    "bytes_downloaded": 23,
+    "mode": "full",
+    "partial": false,
+    "path": "added_tokens.json",
+    "sha256": "462236017bb79296545ff6db99d980cd981258a0ec05dc225a6d1b1774df8aed",
+    "size_on_hub": 23
+   },
+   {
+    "bytes_downloaded": 343,
+    "mode": "full",
+    "partial": false,
+    "path": "alphabet.json",
+    "sha256": "cf62d800faedf1ba5b60910a140e88b819f8b8411522ba31e72ab34a68938df4",
+    "size_on_hub": 343
+   },
+   {
+    "bytes_downloaded": 2061,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "35d09d7133b26340c9e701e84aca947ed27a8256b9b2988dfcf18a5bdab3440f",
+    "size_on_hub": 2061
+   },
+   {
+    "bytes_downloaded": 78,
+    "mode": "full",
+    "partial": false,
+    "path": "language_model/attrs.json",
+    "sha256": "4171107e453d581362e2415e91ce09125fb1666826eecdd4a0a91d3d6cc41aa0",
+    "size_on_hub": 78
+   },
+   {
+    "bytes_downloaded": 4995214,
+    "mode": "full",
+    "partial": false,
+    "path": "language_model/unigrams.txt",
+    "sha256": "dbf0a87dadc105a6fd70e18bbdffe1c3346426dd43008851110d0534df2465c6",
+    "size_on_hub": 4995214
+   },
+   {
+    "bytes_downloaded": 262,
+    "mode": "full",
+    "partial": false,
+    "path": "preprocessor_config.json",
+    "sha256": "2c594304e9d9832162bedd5345051df29e8daf458a845cbed58c6ede23ceeae3",
+    "size_on_hub": 262
+   },
+   {
+    "bytes_downloaded": 309,
+    "mode": "full",
+    "partial": false,
+    "path": "special_tokens_map.json",
+    "sha256": "fe9499f3f127cf340419ded12d4175b3a28a58c99c949bf3f8343a6f6b9fa872",
+    "size_on_hub": 309
+   },
+   {
+    "bytes_downloaded": 300,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "b0626ad58b7eeb65a115845531226942bd0ce17a091f72674ec3062a2ecb074c",
+    "size_on_hub": 300
+   },
+   {
+    "bytes_downloaded": 161241,
+    "mode": "full",
+    "partial": false,
+    "path": "train.ipynb",
+    "sha256": "ba59b5fbe771628ad3930b8d777d48717915a67fae4d8c1f21305d0add2822f7",
+    "size_on_hub": 161241
+   },
+   {
+    "bytes_downloaded": 2758,
+    "mode": "full",
+    "partial": false,
+    "path": "trainer_state.json",
+    "sha256": "b2bd203dc8af52b90e0f43d65f80d1d1235f4cc2d56bf3c28df355b239bddf21",
+    "size_on_hub": 2758
+   },
+   {
+    "bytes_downloaded": 469,
+    "mode": "full",
+    "partial": false,
+    "path": "vocab.json",
+    "sha256": "1d646d6bdb317d6ab037994ad52eddefe51ddade07727fa41b5a05ad76e0ffd2",
+    "size_on_hub": 469
+   },
+   {
+    "bytes_downloaded": 14567,
+    "mode": "full",
+    "partial": false,
+    "path": "rng_state.pth",
+    "sha256": "490ca80b725ae7cc84f79c45a41ad8d08cf8b31084d829c0315d48f6217697f4",
+    "size_on_hub": 14567
+   },
+   {
+    "bytes_downloaded": 52552,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model.safetensors",
+    "sha256": "353acd55fbd88be69a928ca91998b4428b16218bc3d9cfa0145376e352e03da7",
+    "size_on_hub": 1261996032
+   }
+  ],
+  "sha": "73e2b9004f35d3ca79316a624e7edc3cdaa45d40"
+ },
+ "coqui/XTTS-v2": {
+  "downloads": 6309292,
+  "files": [
+   {
+    "bytes_downloaded": 4014,
+    "mode": "full",
+    "partial": false,
+    "path": "LICENSE.txt",
+    "sha256": "190f6d7c19b8984f91b97712b94ce92d2b2e640fc677dacab966e955ece9d043",
+    "size_on_hub": 4014
+   },
+   {
+    "bytes_downloaded": 4263,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "1cfa85b3293f685b3a6537f8da3d94820fd111270e553589073885dea3facfb7",
+    "size_on_hub": 4263
+   },
+   {
+    "bytes_downloaded": 4368,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "ef262b1454dd2a77e1461b0b2cd53e19b8a7624cc131b837d36df67356bc75e8",
+    "size_on_hub": 4368
+   },
+   {
+    "bytes_downloaded": 361219,
+    "mode": "full",
+    "partial": false,
+    "path": "vocab.json",
+    "sha256": "928260878a59da8a72a2a5b7687fea29d5106137669d90945430fe17e415304a",
+    "size_on_hub": 361219
+   },
+   {
+    "bytes_downloaded": 1067,
+    "mode": "full",
+    "partial": false,
+    "path": "mel_stats.pth",
+    "sha256": "1f69422a8a8f344c4fca2f0c6b8d41d2151d6615b7321e48e6bb15ae949b119c",
+    "size_on_hub": 1067
+   },
+   {
+    "bytes_downloaded": 7754818,
+    "mode": "full",
+    "partial": false,
+    "path": "speakers_xtts.pth",
+    "sha256": "f0f6137c19a4eab0cbbe4c99b5babacf68b1746e50da90807708c10e645b943b",
+    "size_on_hub": 7754818
+   }
+  ],
+  "sha": "6c2b0d75eae4b7047358e3b6bd9325f857d43f77"
+ },
+ "cross-encoder/ms-marco-MiniLM-L6-v2": {
+  "downloads": 74721326,
+  "files": [
+   {
+    "bytes_downloaded": 3673,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "7c0ec39941d0d1d766ccde671f592971d82fe45b7eea550a80d1ea864ebc3baa",
+    "size_on_hub": 3673
+   },
+   {
+    "bytes_downloaded": 794,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "380e02c93f431831be65d99a4e7e5f67c133985bf2e77d9d4eba46847190bacc",
+    "size_on_hub": 794
+   },
+   {
+    "bytes_downloaded": 132,
+    "mode": "full",
+    "partial": false,
+    "path": "special_tokens_map.json",
+    "sha256": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+    "size_on_hub": 132
+   },
+   {
+    "bytes_downloaded": 711396,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer.json",
+    "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+    "size_on_hub": 711396
+   },
+   {
+    "bytes_downloaded": 1330,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "a5c2e5a7b1a29a0702cd28c08a399b5ecc110c263009d17f7e3b415f25905fd8",
+    "size_on_hub": 1330
+   },
+   {
+    "bytes_downloaded": 231508,
+    "mode": "full",
+    "partial": false,
+    "path": "vocab.txt",
+    "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+    "size_on_hub": 231508
+   },
+   {
+    "bytes_downloaded": 23087684,
+    "mode": "full",
+    "partial": false,
+    "path": "openvino/openvino_model_qint8_quantized.bin",
+    "sha256": "02eaa804b1c63f7a0012b7830dea8578fb54478eefdc98e8cdb21f4e4c4e55dc",
+    "size_on_hub": 23087684
+   },
+   {
+    "bytes_downloaded": 23200716,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_qint8_arm64.onnx",
+    "sha256": "3573b6b9593cb2f75987a31815d409ca3dd8808629118fd20451bb1a5d90cec7",
+    "size_on_hub": 23200716
+   },
+   {
+    "bytes_downloaded": 23200716,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_qint8_avx512.onnx",
+    "sha256": "3573b6b9593cb2f75987a31815d409ca3dd8808629118fd20451bb1a5d90cec7",
+    "size_on_hub": 23200716
+   },
+   {
+    "bytes_downloaded": 23200716,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_qint8_avx512_vnni.onnx",
+    "sha256": "3573b6b9593cb2f75987a31815d409ca3dd8808629118fd20451bb1a5d90cec7",
+    "size_on_hub": 23200716
+   },
+   {
+    "bytes_downloaded": 23200716,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_quint8_avx2.onnx",
+    "sha256": "c80a8b34256ea453093d612e3ac48d3d965a0c0a48c7906709af8b8e28461bf9",
+    "size_on_hub": 23200716
+   },
+   {
+    "bytes_downloaded": 45516616,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_O4.onnx",
+    "sha256": "b232c2eeedd97a593edc177e3ce4cbd1d6c8f6d8f61a5c201cd0cdeb8134da18",
+    "size_on_hub": 45516616
+   },
+   {
+    "bytes_downloaded": 12098,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model.safetensors",
+    "sha256": "29a8ddac6ae75579d2c6e8f87c82f01dad23eb19b250fac06429588825d7f930",
+    "size_on_hub": 90870598
+   }
+  ],
+  "sha": "233902d25c440f23af6f7d6e94d2946bac0bee0a"
+ },
+ "facebook/esm2_t6_8M_UR50D": {
+  "downloads": 680369,
+  "files": [
+   {
+    "bytes_downloaded": 1705,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "462a2f24724e19c6be0efab926315c294a863c9a9770e2c8b3d859b2d81a07de",
+    "size_on_hub": 1705
+   },
+   {
+    "bytes_downloaded": 775,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "facb9355e8252149f6f99dff5fd1e32e890c3c655362b261d0c81cd6b5839c85",
+    "size_on_hub": 775
+   },
+   {
+    "bytes_downloaded": 125,
+    "mode": "full",
+    "partial": false,
+    "path": "special_tokens_map.json",
+    "sha256": "3aedcd4211c0d43aec4e607ff60a63255f3174ead795e997350f09a5f8cd9ee1",
+    "size_on_hub": 125
+   },
+   {
+    "bytes_downloaded": 95,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "7e9161ecdb548ec45a41cbc6b24aa4476fdd418461f491c4207baa99419a29ad",
+    "size_on_hub": 95
+   },
+   {
+    "bytes_downloaded": 93,
+    "mode": "full",
+    "partial": false,
+    "path": "vocab.txt",
+    "sha256": "0b82cc0a7c7cf9e567b1e5892d793285b9fbae822c964ca48696f7db44598e03",
+    "size_on_hub": 93
+   },
+   {
+    "bytes_downloaded": 30256864,
+    "mode": "full",
+    "partial": false,
+    "path": "tf_model.h5",
+    "sha256": "bbb600f469925d93572cb238a475914a2d0846fb8a7814a98028a7a2e21a05a3",
+    "size_on_hub": 30256864
+   },
+   {
+    "bytes_downloaded": 31406877,
+    "mode": "full",
+    "partial": false,
+    "path": "pytorch_model.bin",
+    "sha256": "9edcf393212f3a26684cd68ca8095ec43c2c341ee0fcc3ba7a4d3a47c5dc138f",
+    "size_on_hub": 31406877
+   },
+   {
+    "bytes_downloaded": 12716,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model.safetensors",
+    "sha256": "5b3bf45022a1763a43fdb47c65922aab2a918bcc4e204fca70f86af12ae1b535",
+    "size_on_hub": 31384292
+   }
+  ],
+  "sha": "c731040fcd8d73dceaa04b0a8e6329b345b0f5df"
+ },
+ "gaurangdave/mnist_cnn": {
+  "downloads": 2627,
+  "files": [
+   {
+    "bytes_downloaded": 17332,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "fd1a6173f8a567a9bcd4d54556509f75834f901bd798afdacbdc762caaa7d264",
+    "size_on_hub": 17332
+   },
+   {
+    "bytes_downloaded": 64,
+    "mode": "full",
+    "partial": false,
+    "path": "metadata.json",
+    "sha256": "96cb207fef1cf00f538359099e3709b847d21410a91888d527aea1813b762415",
+    "size_on_hub": 64
+   },
+   {
+    "bytes_downloaded": 23454,
+    "mode": "full",
+    "partial": false,
+    "path": "tfjs_graph_model/model.json",
+    "sha256": "2cf0b42a20764f6fd15fa15efd6fb582b5beef547547e26afd2e39e08918570a",
+    "size_on_hub": 23454
+   },
+   {
+    "bytes_downloaded": 225304,
+    "mode": "full",
+    "partial": false,
+    "path": "tfjs_graph_model/group1-shard1of1.bin",
+    "sha256": "f6dcd9ca63227f135690c3700a10d13ceb95cc1c53b0a677968d69d89e3969e3",
+    "size_on_hub": 225304
+   },
+   {
+    "bytes_downloaded": 270712,
+    "mode": "full",
+    "partial": false,
+    "path": "exp_no_data_augmentation_functional.h5",
+    "sha256": "b9ff8ee18eac05dee7175bad81fda117262bf2e9a50abfb74cbcc57f13b6f560",
+    "size_on_hub": 270712
+   },
+   {
+    "bytes_downloaded": 277248,
+    "mode": "full",
+    "partial": false,
+    "path": "exp_model_version_1.h5",
+    "sha256": "b92cea6c2a3e5a35c82865ddd91450daddd71834b9fe8f44ad38a97c63a80920",
+    "size_on_hub": 277248
+   },
+   {
+    "bytes_downloaded": 424840,
+    "mode": "full",
+    "partial": false,
+    "path": "exp_no_data_augmentation.h5",
+    "sha256": "6876f3d22bdea9460bed95cbfbf6c261c8900a047464ee99dcfa8dc4fe25dffd",
+    "size_on_hub": 424840
+   },
+   {
+    "bytes_downloaded": 584965,
+    "mode": "full",
+    "partial": false,
+    "path": "experiment_3_03_0.96.keras",
+    "sha256": "cac07af574c927279b8f65e90cc3b2936f0f7f4ccce41b6f4f2a394c36da493b",
+    "size_on_hub": 584965
+   },
+   {
+    "bytes_downloaded": 584965,
+    "mode": "full",
+    "partial": false,
+    "path": "experiment_3_04_0.96.keras",
+    "sha256": "4a76cac4864f89ec30d956225ac17002b59604c952038c5733b9adff5a2f2fb4",
+    "size_on_hub": 584965
+   },
+   {
+    "bytes_downloaded": 584965,
+    "mode": "full",
+    "partial": false,
+    "path": "experiment_3_05_0.97.keras",
+    "sha256": "2966a4c2477c0678c5d468bb26ec04e6b031e9bf18db2b31f9ce1b45353f56e9",
+    "size_on_hub": 584965
+   },
+   {
+    "bytes_downloaded": 584965,
+    "mode": "full",
+    "partial": false,
+    "path": "experiment_3_06_0.97.keras",
+    "sha256": "21af1e92835592319da951af08be84ec6fc3b1f0482b23b2a4b5855a00d95563",
+    "size_on_hub": 584965
+   }
+  ],
+  "sha": "df16e7b4ffd0413b07ccf9c4146230d48f711310"
+ },
+ "google-bert/bert-base-uncased": {
+  "downloads": 29726871,
+  "files": [
+   {
+    "bytes_downloaded": 10517,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "9187b6018ea0010d884e78e098e328faa1b88b301570d0cce606bb35e4067e17",
+    "size_on_hub": 10517
+   },
+   {
+    "bytes_downloaded": 570,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20",
+    "size_on_hub": 570
+   },
+   {
+    "bytes_downloaded": 617,
+    "mode": "full",
+    "partial": false,
+    "path": "coreml/fill-mask/float32_model.mlpackage/Manifest.json",
+    "sha256": "4e9566ed44c3c401dada9ff243e0efbd570f9bc4e55dd7fdfb937cb23993c94c",
+    "size_on_hub": 617
+   },
+   {
+    "bytes_downloaded": 466062,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer.json",
+    "sha256": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+    "size_on_hub": 466062
+   },
+   {
+    "bytes_downloaded": 48,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10",
+    "size_on_hub": 48
+   },
+   {
+    "bytes_downloaded": 231508,
+    "mode": "full",
+    "partial": false,
+    "path": "vocab.txt",
+    "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+    "size_on_hub": 231508
+   },
+   {
+    "bytes_downloaded": 24056,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model.safetensors",
+    "sha256": "11a9a37d4956bd29d6399375655fbb414e2a9c6360c85288d24d3a49748f0d33",
+    "size_on_hub": 440449768
+   }
+  ],
+  "sha": "86b5e0934494bd15c9632b12f734a8a67f723594"
+ },
+ "google-t5/t5-small": {
+  "downloads": 24464017,
+  "files": [
+   {
+    "bytes_downloaded": 8473,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "6559de584e57caf42cd2c77a23bb31d5bd28c5aa9995ee1d967b510acd88d410",
+    "size_on_hub": 8473
+   },
+   {
+    "bytes_downloaded": 1206,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "530e25060e3a8d5f7b0fcf53bfea9f3601165161f3b1914676e98d97cf07bcf1",
+    "size_on_hub": 1206
+   },
+   {
+    "bytes_downloaded": 147,
+    "mode": "full",
+    "partial": false,
+    "path": "generation_config.json",
+    "sha256": "f5a1c7e2be8092018d8835128987edf0111637dd98e90599cc80310fef75d95a",
+    "size_on_hub": 147
+   },
+   {
+    "bytes_downloaded": 1389353,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer.json",
+    "sha256": "d2acde0d8d71dd30a711834b07781b9c89feaac33fd332f60507699282740066",
+    "size_on_hub": 1389353
+   },
+   {
+    "bytes_downloaded": 2324,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "d1e7146101aa96282057f374aa9c3b260fba2109e5990edb1775d6efc70ffa3c",
+    "size_on_hub": 2324
+   },
+   {
+    "bytes_downloaded": 35501599,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/encoder_model_quantized.onnx",
+    "sha256": "5124770e67bf2c2ca80dd49ff9a002b240c3adbaf0c3b96a765115a756ed2916",
+    "size_on_hub": 35501599
+   },
+   {
+    "bytes_downloaded": 55233251,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/decoder_with_past_model_quantized.onnx",
+    "sha256": "30e4b22fc9860ee5bc4dc07c4857c6a72c81303d0a8a2d7225549127d0219caa",
+    "size_on_hub": 55233251
+   },
+   {
+    "bytes_downloaded": 58405018,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/decoder_model_quantized.onnx",
+    "sha256": "a1b7a03fd50c2c5d3bf6e0d605e70d3bf1cb0b35e99ae3bd9fd830a5b87deba3",
+    "size_on_hub": 58405018
+   },
+   {
+    "bytes_downloaded": 58682273,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/decoder_model_merged_quantized.onnx",
+    "sha256": "af6a06ea84880ca90282e6b94e17051eea139ca9c2b8d03c45ba204c03418092",
+    "size_on_hub": 58682273
+   },
+   {
+    "bytes_downloaded": 15536,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model.safetensors",
+    "sha256": "bc31552ccfe5b7851b9982a8ef7b8ec61a3d41c986b79bf8286d172157437dd1",
+    "size_on_hub": 242043056
+   }
+  ],
+  "sha": "df1b051c49625cf57a3d0d8d3863ed4d13564fe4"
+ },
+ "google/bert_uncased_L-2_H-128_A-2": {
+  "downloads": 273136,
+  "files": [
+   {
+    "bytes_downloaded": 4617,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "d13a54d652a2a54fbbc50e063b465fb273295870867821e1b06baba1d49d68a9",
+    "size_on_hub": 4617
+   },
+   {
+    "bytes_downloaded": 382,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "508e1f01aae55d73355cbdd82609be2f43ba5a0d3428837adbe56cf8391f8b39",
+    "size_on_hub": 382
+   },
+   {
+    "bytes_downloaded": 231508,
+    "mode": "full",
+    "partial": false,
+    "path": "vocab.txt",
+    "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+    "size_on_hub": 231508
+   },
+   {
+    "bytes_downloaded": 17743809,
+    "mode": "full",
+    "partial": false,
+    "path": "pytorch_model.bin",
+    "sha256": "dd152f8450c0579bd271ac0ccb4a88fa4f6a67d8035b7799dbf3a0fb7156d9d0",
+    "size_on_hub": 17743809
+   },
+   {
+    "bytes_downloaded": 5272,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model.safetensors",
+    "sha256": "410825ffcb3f1f3db2f8be5ba73f8c745854f47539306c384fdeb1d774e4a931",
+    "size_on_hub": 17739144
+   }
+  ],
+  "sha": "30b0a37ccaaa32f332884b96992754e246e48c5f"
+ },
+ "hexgrad/Kokoro-82M": {
+  "downloads": 10502252,
+  "files": [
+   {
+    "bytes_downloaded": 2562,
+    "mode": "full",
+    "partial": false,
+    "path": "DONATE.md",
+    "sha256": "cf31b6b09359786af5ec0de74b59b026b1fdaa0f575c8f64f221a74274ce433b",
+    "size_on_hub": 2562
+   },
+   {
+    "bytes_downloaded": 534,
+    "mode": "full",
+    "partial": false,
+    "path": "EVAL.md",
+    "sha256": "9b4d7a54809bf22127d19d936d9e749249e1a655e2e0a1df8a6546f77a819658",
+    "size_on_hub": 534
+   },
+   {
+    "bytes_downloaded": 6348,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "91dcabced89db6f109b8786642f50402d3ee87450e8189589b6f85520e7f4d78",
+    "size_on_hub": 6348
+   },
+   {
+    "bytes_downloaded": 5956,
+    "mode": "full",
+    "partial": false,
+    "path": "SAMPLES.md",
+    "sha256": "96b7cc1978491ae89097367952c563d1f7110ae15473a7f5353a0f84b39cc6d1",
+    "size_on_hub": 5956
+   },
+   {
+    "bytes_downloaded": 7625,
+    "mode": "full",
+    "partial": false,
+    "path": "VOICES.md",
+    "sha256": "ec7e4941ad7e194af61e3455928528a9ff5360c7c505e412efab27d6a69ea106",
+    "size_on_hub": 7625
+   },
+   {
+    "bytes_downloaded": 2351,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f",
+    "size_on_hub": 2351
+   },
+   {
+    "bytes_downloaded": 523341,
+    "mode": "full",
+    "partial": false,
+    "path": "voices/im_nicola.pt",
+    "sha256": "234ed06648649f9bd874b37508ea17560b9c993ef85b4ddb3e3a71e062bd2c12",
+    "size_on_hub": 523341
+   },
+   {
+    "bytes_downloaded": 523351,
+    "mode": "full",
+    "partial": false,
+    "path": "voices/af_sky.pt",
+    "sha256": "c799548aed06e0cb0d655a85a01b48e7f10484d71663f9a3045a5b9362e8512c",
+    "size_on_hub": 523351
+   },
+   {
+    "bytes_downloaded": 523351,
+    "mode": "full",
+    "partial": false,
+    "path": "voices/hm_psi.pt",
+    "sha256": "2f0f055cea4f1083f4ef127ece48d71606347f6557dbb961c0ca5740a2da485b",
+    "size_on_hub": 523351
+   },
+   {
+    "bytes_downloaded": 523351,
+    "mode": "full",
+    "partial": false,
+    "path": "voices/jf_gongitsune.pt",
+    "sha256": "1b171917f18f351e65f2bf9657700cd6bfec4e65589c297525b9cf3c20105770",
+    "size_on_hub": 523351
+   },
+   {
+    "bytes_downloaded": 523420,
+    "mode": "full",
+    "partial": false,
+    "path": "voices/af_kore.pt",
+    "sha256": "8bfbc512321c3db49dff984ac675fa5ac7eaed5a96cc31104d3a9080e179d69d",
+    "size_on_hub": 523420
+   },
+   {
+    "bytes_downloaded": 523420,
+    "mode": "full",
+    "partial": false,
+    "path": "voices/af_nova.pt",
+    "sha256": "e0233676ddc21908c37a1f102f6b88a59e4e5c1bd764983616eb9eda629dbcd2",
+    "size_on_hub": 523420
+   },
+   {
+    "bytes_downloaded": 523420,
+    "mode": "full",
+    "partial": false,
+    "path": "voices/am_adam.pt",
+    "sha256": "ced7e284aba12472891be1da3ab34db84cc05cc02b5889535796dbf2d8b0cb34",
+    "size_on_hub": 523420
+   },
+   {
+    "bytes_downloaded": 523420,
+    "mode": "full",
+    "partial": false,
+    "path": "voices/am_echo.pt",
+    "sha256": "8bcfdc852bc985fb45c396c561e571ffb9183930071f962f1b50df5c97b161e8",
+    "size_on_hub": 523420
+   }
+  ],
+  "sha": "f3ff3571791e39611d31c381e3a41a3af07b4987"
+ },
+ "julien-c/dummy-unknown": {
+  "downloads": 443900,
+  "files": [
+   {
+    "bytes_downloaded": 1114,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "08fd675f54b79c1a753f1775797f0fc93363ab7bc02ca28cbb93a6eeb657cb86",
+    "size_on_hub": 1114
+   },
+   {
+    "bytes_downloaded": 496,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "b908f2b7227d4d31a2105dfa31095e28d304f9bc938bfaaa57ee2cacf1f62d32",
+    "size_on_hub": 496
+   },
+   {
+    "bytes_downloaded": 36,
+    "mode": "full",
+    "partial": false,
+    "path": "merges.txt",
+    "sha256": "d4c0bfb34840119a27e37d1ec4b049a66dc8e75bdf23cd82b4ef0ec8211bf100",
+    "size_on_hub": 36
+   },
+   {
+    "bytes_downloaded": 239,
+    "mode": "full",
+    "partial": false,
+    "path": "vocab.json",
+    "sha256": "599b2200906521148126e5384197b4be41e33b733519be16b6fe1b56db6a1c9e",
+    "size_on_hub": 239
+   },
+   {
+    "bytes_downloaded": 65074,
+    "mode": "full",
+    "partial": false,
+    "path": "pytorch_model.bin",
+    "sha256": "4b243c475af8d0a7754e87d7d096c92e5199ec2fe168a2ee7998e3b8e9bcb1d3",
+    "size_on_hub": 65074
+   },
+   {
+    "bytes_downloaded": 157312,
+    "mode": "full",
+    "partial": false,
+    "path": "tf_model.h5",
+    "sha256": "4a8fce317e36e320941d2d200a1747c94d2a8ee0b24c8289522b579ea53eac40",
+    "size_on_hub": 157312
+   }
+  ],
+  "sha": "60b8d3fe22aebb024b573f1cca224db3126d10f3"
+ },
+ "julien-c/skops-digits": {
+  "downloads": 57,
+  "files": [
+   {
+    "bytes_downloaded": 9103,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "0f5e1eb5d4dffaae9f00471297c8cc5736812fafedd0f9595390a5fd541e911e",
+    "size_on_hub": 9103
+   },
+   {
+    "bytes_downloaded": 7813,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "40a3ac4aed97967a1e44d5dffdf4c06c0e8c9ae2aa72a02f275f90f11afd3bf5",
+    "size_on_hub": 7813
+   },
+   {
+    "bytes_downloaded": 187502,
+    "mode": "full",
+    "partial": false,
+    "path": "sklearn_model.joblib",
+    "sha256": "a2570bdbea0077b295c39ba628ab7fc4adc2d03c481483f17dcc5ada0b29d8e8",
+    "size_on_hub": 187502
+   }
+  ],
+  "sha": "3cd865e73fe72cdd704871c0bc1a6d2aa7093077"
+ },
+ "julien-c/wine-quality": {
+  "downloads": 164,
+  "files": [
+   {
+    "bytes_downloaded": 2696,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "7e1236b579789353db9916839c6b47a302085900ece0b1c44a10bad304569059",
+    "size_on_hub": 2696
+   },
+   {
+    "bytes_downloaded": 0,
+    "mode": "full",
+    "partial": false,
+    "path": "config.yml",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_on_hub": 0
+   },
+   {
+    "bytes_downloaded": 186819,
+    "mode": "full",
+    "partial": false,
+    "path": "sklearn_model.joblib",
+    "sha256": "f163e61594190915171651609102ecf30a4dfa23a140f6d28cfa8f06dbda6952",
+    "size_on_hub": 186819
+   }
+  ],
+  "sha": "90ef3b74e2728ee35ac84e774fa34d8d7697c60c"
+ },
+ "madhurjindal/autonlp-Gibberish-Detector-492513457": {
+  "downloads": 141336,
+  "files": [
+   {
+    "bytes_downloaded": 11462,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "a4dde6854776f843dbe5f70a9adec36da3d95a872715bcac8cae741f092de483",
+    "size_on_hub": 11462
+   },
+   {
+    "bytes_downloaded": 870,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "31b97892be4bb8ed5fca4162b64fc8e5a9a0e7d4a5c2cc5e5d3f68af8da489ca",
+    "size_on_hub": 870
+   },
+   {
+    "bytes_downloaded": 912,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/config.json",
+    "sha256": "236922a5373bf08a82aabaa7f5623be759e9af797182ee6f6faa466e47404412",
+    "size_on_hub": 912
+   },
+   {
+    "bytes_downloaded": 695,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/special_tokens_map.json",
+    "sha256": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a",
+    "size_on_hub": 695
+   },
+   {
+    "bytes_downloaded": 711396,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/tokenizer.json",
+    "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+    "size_on_hub": 711396
+   },
+   {
+    "bytes_downloaded": 1386,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/tokenizer_config.json",
+    "sha256": "ff91bfa67c48757c5b9d4fbac0d790fc33c3f780eb8053e4c2c2438b0b64d688",
+    "size_on_hub": 1386
+   },
+   {
+    "bytes_downloaded": 231508,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/vocab.txt",
+    "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+    "size_on_hub": 231508
+   },
+   {
+    "bytes_downloaded": 112,
+    "mode": "full",
+    "partial": false,
+    "path": "special_tokens_map.json",
+    "sha256": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+    "size_on_hub": 112
+   },
+   {
+    "bytes_downloaded": 466245,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer.json",
+    "sha256": "0f5c2a18b34402d19ff8f878ec161cfa1bd5223c4f4faba79a4724c9f49c87bc",
+    "size_on_hub": 466245
+   },
+   {
+    "bytes_downloaded": 317,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "25f5e77e3f0fb634363b48e7ca24d41bd45294640f851959f73b4e148a388a32",
+    "size_on_hub": 317
+   },
+   {
+    "bytes_downloaded": 231508,
+    "mode": "full",
+    "partial": false,
+    "path": "vocab.txt",
+    "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+    "size_on_hub": 231508
+   },
+   {
+    "bytes_downloaded": 2034,
+    "mode": "full",
+    "partial": false,
+    "path": "sample_input.pkl",
+    "sha256": "be88e587f6b9b4ada6406c0ccb4d9a9eb199fb025cf4bb245d43e97662543603",
+    "size_on_hub": 2034
+   },
+   {
+    "bytes_downloaded": 12528,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model.safetensors",
+    "sha256": "4f330185dfa8668de254bebac4e5b42002f3038b8d1de085920b47230ba657d3",
+    "size_on_hub": 267838720
+   }
+  ],
+  "sha": "76672dd7d3575f68ab980705bcec975cc62de71c"
+ },
+ "mesolitica/wav2vec2-xls-r-300m-mixed": {
+  "downloads": 1374566,
+  "files": [
+   {
+    "bytes_downloaded": 1622,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "111c140306e9903be3ba75784eadc92b7a7b6f245bbdd15f8a73a906cd5a5396",
+    "size_on_hub": 1622
+   },
+   {
+    "bytes_downloaded": 2057,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "f764e782e0d6ebe3021565ead741400983095f465c30822d25f6aed106b29401",
+    "size_on_hub": 2057
+   },
+   {
+    "bytes_downloaded": 20010,
+    "mode": "full",
+    "partial": false,
+    "path": "evaluate-gpu.ipynb",
+    "sha256": "dea28804f96a935294df48b7225377dc7ae6db354f4504a6aa232a485e25f60a",
+    "size_on_hub": 20010
+   },
+   {
+    "bytes_downloaded": 256,
+    "mode": "full",
+    "partial": false,
+    "path": "preprocessor_config.json",
+    "sha256": "ffc72f475cd79680d5d659fbaefc691cdbcee5c9703a15faf708a5e91452a8d8",
+    "size_on_hub": 256
+   },
+   {
+    "bytes_downloaded": 85,
+    "mode": "full",
+    "partial": false,
+    "path": "special_tokens_map.json",
+    "sha256": "50eb73d51191696209d30d42d6ede50e57e7a542ca1db12df714b2c0aa3da8e2",
+    "size_on_hub": 85
+   },
+   {
+    "bytes_downloaded": 257,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "1d608675e6837809e5d58a2524d355ce07aa4bf31ffa60ef0a6fed69de6c5f0b",
+    "size_on_hub": 257
+   },
+   {
+    "bytes_downloaded": 357,
+    "mode": "full",
+    "partial": false,
+    "path": "vocab.json",
+    "sha256": "05646048b2363534a2d3bf347869807fef8648703a83711e267339192c9f5048",
+    "size_on_hub": 357
+   }
+  ],
+  "sha": "626d64add848693049722e7f2bdbe1d7237f393c"
+ },
+ "mki0809/geosearch-reranker": {
+  "downloads": 10,
+  "files": [
+   {
+    "bytes_downloaded": 4255,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "ea9f3404937a25dca16b68664297fafbae653a289cc67a2ef6f5cb261425c576",
+    "size_on_hub": 4255
+   },
+   {
+    "bytes_downloaded": 817,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "c87c6c537066575821301fd564447a535e3002c5443a587a1f38146ede8f7a06",
+    "size_on_hub": 817
+   },
+   {
+    "bytes_downloaded": 258,
+    "mode": "full",
+    "partial": false,
+    "path": "config_sentence_transformers.json",
+    "sha256": "7896ba7dc68b993798ec78479134370839547f1593baaf0fd380831d3e784b20",
+    "size_on_hub": 258
+   },
+   {
+    "bytes_downloaded": 131,
+    "mode": "full",
+    "partial": false,
+    "path": "modules.json",
+    "sha256": "ec085e5249603c4bbf035028f530b68d78a7387110828d554d3193f41e1b67b9",
+    "size_on_hub": 131
+   },
+   {
+    "bytes_downloaded": 142,
+    "mode": "full",
+    "partial": false,
+    "path": "rerank_meta.json",
+    "sha256": "7b331ad27c0246d675e842355386dffacf5246f1d5ff2bfe4d0efa6f2341e53f",
+    "size_on_hub": 142
+   },
+   {
+    "bytes_downloaded": 576,
+    "mode": "full",
+    "partial": false,
+    "path": "rerank_metrics.json",
+    "sha256": "d282a160c0051466aab392d6dd6a0d67dfd519435cc1a8774702797517b8c598",
+    "size_on_hub": 576
+   },
+   {
+    "bytes_downloaded": 225,
+    "mode": "full",
+    "partial": false,
+    "path": "sentence_bert_config.json",
+    "sha256": "d43017ebfb955afe9b83122ef46e15db65d0353a42884c8ad40fb442226e5363",
+    "size_on_hub": 225
+   },
+   {
+    "bytes_downloaded": 314,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "948748a2a73acb4e1b5345c551b7861500b021cafc8c9c321fa7251ee86b7c89",
+    "size_on_hub": 314
+   },
+   {
+    "bytes_downloaded": 855484,
+    "mode": "full",
+    "partial": false,
+    "path": "rerank_model.cbm",
+    "sha256": "5543f92547aca497084720a1e9f66faf0860e8781aa003d687167b2fa83fbba8",
+    "size_on_hub": 855484
+   },
+   {
+    "bytes_downloaded": 24112,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model.safetensors",
+    "sha256": "0a24adcc49304390626af505c94c2854f1a81fe5addb99c2bff426cbe393ac5d",
+    "size_on_hub": 470588468
+   }
+  ],
+  "sha": "3a6961e28ce086b759bb09f2782caff6c3ba16f4"
+ },
+ "nvidia/segformer-b0-finetuned-ade-512-512": {
+  "downloads": 297625,
+  "files": [
+   {
+    "bytes_downloaded": 3189,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "a738172c9395b26f14e1981f6a95885085cc1239210446d752bf30ad6a9b8538",
+    "size_on_hub": 3189
+   },
+   {
+    "bytes_downloaded": 6884,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "209caa9091e4632f7c8883c11170cd08ad29af68b23c09590aa4a5befb1a2a7f",
+    "size_on_hub": 6884
+   },
+   {
+    "bytes_downloaded": 271,
+    "mode": "full",
+    "partial": false,
+    "path": "preprocessor_config.json",
+    "sha256": "8039d1d210abaa7117ad78e58cdfd6141a2ec72c03dae891b3cd76737e422c6c",
+    "size_on_hub": 271
+   },
+   {
+    "bytes_downloaded": 15092257,
+    "mode": "full",
+    "partial": false,
+    "path": "pytorch_model.bin",
+    "sha256": "0f4df97633cbedd558ecffa3ad228ace5af37e082678390b45a9d22745787c61",
+    "size_on_hub": 15092257
+   },
+   {
+    "bytes_downloaded": 15285696,
+    "mode": "full",
+    "partial": false,
+    "path": "tf_model.h5",
+    "sha256": "d38f99e2a8e73bbdb4635669be5bfcbbfc85b4b5c1ac75d36b47312c7fc5d06e",
+    "size_on_hub": 15285696
+   },
+   {
+    "bytes_downloaded": 24112,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model.safetensors",
+    "sha256": "52552d480d75f85ed3cbe3b8e2de5b631f3f23eafb8d2acc0ba08c3b235792d0",
+    "size_on_hub": 15036944
+   }
+  ],
+  "sha": "489d5cd81a0b59fab9b7ea758d3548ebe99677da"
+ },
+ "openai-community/gpt2": {
+  "downloads": 18446999,
+  "files": [
+   {
+    "bytes_downloaded": 8092,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "0fcd631078093c2aa1d93438b898320b8a1167784e2a1ab37b8016e9de8b3c2e",
+    "size_on_hub": 8092
+   },
+   {
+    "bytes_downloaded": 665,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "0daed7749b4f02b8f76240d5444551d7b08712dab4d0adb8239c56ba823bb7b4",
+    "size_on_hub": 665
+   },
+   {
+    "bytes_downloaded": 124,
+    "mode": "full",
+    "partial": false,
+    "path": "generation_config.json",
+    "sha256": "ed0b32ac72c0f5f44a719abb2d7786ea5146c871f83717b7f2018065954de02b",
+    "size_on_hub": 124
+   },
+   {
+    "bytes_downloaded": 456318,
+    "mode": "full",
+    "partial": false,
+    "path": "merges.txt",
+    "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "size_on_hub": 456318
+   },
+   {
+    "bytes_downloaded": 879,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/config.json",
+    "sha256": "c6d8a78631f7a03a14493eb78d584ba92c8e68c8774b810426b34df1f8a15b10",
+    "size_on_hub": 879
+   },
+   {
+    "bytes_downloaded": 119,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/generation_config.json",
+    "sha256": "067a873d1d1a67ffa7237a0ad0eebdb547d3f9209793c8aa476ec130815e3c8c",
+    "size_on_hub": 119
+   },
+   {
+    "bytes_downloaded": 456318,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/merges.txt",
+    "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "size_on_hub": 456318
+   },
+   {
+    "bytes_downloaded": 99,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/special_tokens_map.json",
+    "sha256": "6f50ab5a5a509a1c309d6171f339b196a900dc9c99ad0408ff23bb615fdae7ad",
+    "size_on_hub": 99
+   },
+   {
+    "bytes_downloaded": 2107653,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/tokenizer.json",
+    "sha256": "cda20b8ca044949aa07ac4078420c80d1a57139d5f9f33700e46fb2d891e7c66",
+    "size_on_hub": 2107653
+   },
+   {
+    "bytes_downloaded": 234,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/tokenizer_config.json",
+    "sha256": "551e26ec611d8d0c8edc3ef72e518a38418cb71f40de1347dd486a595e1557d7",
+    "size_on_hub": 234
+   },
+   {
+    "bytes_downloaded": 798156,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/vocab.json",
+    "sha256": "3ba3c3109ff33976c4bd966589c11ee14fcaa1f4c9e5e154c2ed7f99d80709e7",
+    "size_on_hub": 798156
+   },
+   {
+    "bytes_downloaded": 1355256,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer.json",
+    "sha256": "8414cab924d8b9b33013f0d221c5862f365ee9be39c5c2bfae8a5a9e970478a6",
+    "size_on_hub": 1355256
+   },
+   {
+    "bytes_downloaded": 26,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "5e04eb606e3a1583530a42e36c2a6b6615c86f34fe77e44d9ddeb43ff940931f",
+    "size_on_hub": 26
+   },
+   {
+    "bytes_downloaded": 1042301,
+    "mode": "full",
+    "partial": false,
+    "path": "vocab.json",
+    "sha256": "196139668be63f3b5d6574427317ae82f612a97c5d1cdaf36ed2256dbf636783",
+    "size_on_hub": 1042301
+   },
+   {
+    "bytes_downloaded": 14291,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model.safetensors",
+    "sha256": "6201ba7dfaf69457803f802c211019e95f0c1a99a1f5387dcb53e500e5e30e85",
+    "size_on_hub": 548105171
+   }
+  ],
+  "sha": "607a30d783dfa663caf39e06633721c8d4cfcd7e"
+ },
+ "prajjwal1/bert-tiny": {
+  "downloads": 956473,
+  "files": [
+   {
+    "bytes_downloaded": 2560,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "55ce99eb2a82b118fe74158365804de22c6909b723135d85dec7f4d9e8518c38",
+    "size_on_hub": 2560
+   },
+   {
+    "bytes_downloaded": 285,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
+    "size_on_hub": 285
+   },
+   {
+    "bytes_downloaded": 231508,
+    "mode": "full",
+    "partial": false,
+    "path": "vocab.txt",
+    "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+    "size_on_hub": 231508
+   },
+   {
+    "bytes_downloaded": 17756393,
+    "mode": "full",
+    "partial": false,
+    "path": "pytorch_model.bin",
+    "sha256": "dab2c2bddcfb48ea430ef63fd76d46d67d704487844d967256a50dd7d7fd0a66",
+    "size_on_hub": 17756393
+   }
+  ],
+  "sha": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837"
+ },
+ "ptouch/phishing-distilbert-cyber207": {
+  "downloads": 269464,
+  "files": [
+   {
+    "bytes_downloaded": 5174,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "0336368f8274a5ed09f54cee8d56a851ecee96026d9f391a6735762c16608a60",
+    "size_on_hub": 5174
+   },
+   {
+    "bytes_downloaded": 663,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "d6e3e3bb5f192cabf4fb62d83c3ae723fd01a531dc09faac508edd6850734471",
+    "size_on_hub": 663
+   },
+   {
+    "bytes_downloaded": 711661,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer.json",
+    "sha256": "0d3aef594edd5f9b53e7f814277a9171dc70ff93eb66bda6e01f7aa53997d963",
+    "size_on_hub": 711661
+   },
+   {
+    "bytes_downloaded": 328,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "af5ecd1e2aa3d659df1ea773292e80eb41a5c3b4026126019e5c6dcdb7cbc044",
+    "size_on_hub": 328
+   },
+   {
+    "bytes_downloaded": 40891,
+    "mode": "full",
+    "partial": false,
+    "path": "log_reg_model.joblib",
+    "sha256": "9878ca41846f60689c063de005095ddbe8dc575f07af21e9a7be1d27bfc70678",
+    "size_on_hub": 40891
+   },
+   {
+    "bytes_downloaded": 186503,
+    "mode": "full",
+    "partial": false,
+    "path": "tfidf_vectorizer.joblib",
+    "sha256": "fb5997fcd9e88a04d0db0f7d7eb8ef26c4264a8a0c8b4ffd309118d098d83b53",
+    "size_on_hub": 186503
+   },
+   {
+    "bytes_downloaded": 12520,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model.safetensors",
+    "sha256": "3faa78863c7c1451ae2e16a437b73f9408bacc0208aa54d0c8ef1abaf24b5dce",
+    "size_on_hub": 267832560
+   }
+  ],
+  "sha": "d319a0318d13ceb21707305cee466c4ba2a88912"
+ },
+ "pyannote/wespeaker-voxceleb-resnet34-LM": {
+  "downloads": 6024933,
+  "files": [
+   {
+    "bytes_downloaded": 3319,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "ffc47d6f225a9341771a8304c0b8a354f706184956737661cb2c695e310551e3",
+    "size_on_hub": 3319
+   },
+   {
+    "bytes_downloaded": 221,
+    "mode": "full",
+    "partial": false,
+    "path": "config.yaml",
+    "sha256": "6ff718cff3c5d7a4493537ab7f4780cad7e3d32453f59099b4076aefa07a9974",
+    "size_on_hub": 221
+   },
+   {
+    "bytes_downloaded": 26645418,
+    "mode": "full",
+    "partial": false,
+    "path": "pytorch_model.bin",
+    "sha256": "366edf44f4c80889a3eb7a9d7bdf02c4aede3127f7dd15e274dcdb826b143c56",
+    "size_on_hub": 26645418
+   }
+  ],
+  "sha": "837717ddb9ff5507820346191109dc79c958d614"
+ },
+ "sentence-transformers/all-MiniLM-L6-v2": {
+  "downloads": 203243195,
+  "files": [
+   {
+    "bytes_downloaded": 190,
+    "mode": "full",
+    "partial": false,
+    "path": "1_Pooling/config.json",
+    "sha256": "4be450dde3b0273bb9787637cfbd28fe04a7ba6ab9d36ac48e92b11e350ffc23",
+    "size_on_hub": 190
+   },
+   {
+    "bytes_downloaded": 10502,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0",
+    "size_on_hub": 10502
+   },
+   {
+    "bytes_downloaded": 612,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "953f9c0d463486b10a6871cc2fd59f223b2c70184f49815e7efbcab5d8908b41",
+    "size_on_hub": 612
+   },
+   {
+    "bytes_downloaded": 116,
+    "mode": "full",
+    "partial": false,
+    "path": "config_sentence_transformers.json",
+    "sha256": "061ca9d39661d6c6d6de5ba27f79a1cd5770ea247f8d46412a68a498dc5ac9f3",
+    "size_on_hub": 116
+   },
+   {
+    "bytes_downloaded": 39265,
+    "mode": "full",
+    "partial": false,
+    "path": "data_config.json",
+    "sha256": "32edcb108fc2516b920734a862ae0692bcae1c5d45d5f8d972cb0d53434a4c54",
+    "size_on_hub": 39265
+   },
+   {
+    "bytes_downloaded": 349,
+    "mode": "full",
+    "partial": false,
+    "path": "modules.json",
+    "sha256": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+    "size_on_hub": 349
+   },
+   {
+    "bytes_downloaded": 53,
+    "mode": "full",
+    "partial": false,
+    "path": "sentence_bert_config.json",
+    "sha256": "fc1993fde0a95c24ec6c022539d41cf6e2f7c9721e5415d6fb6897472a9cd4b7",
+    "size_on_hub": 53
+   },
+   {
+    "bytes_downloaded": 112,
+    "mode": "full",
+    "partial": false,
+    "path": "special_tokens_map.json",
+    "sha256": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+    "size_on_hub": 112
+   },
+   {
+    "bytes_downloaded": 466247,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer.json",
+    "sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+    "size_on_hub": 466247
+   },
+   {
+    "bytes_downloaded": 350,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "acb92769e8195aabd29b7b2137a9e6d6e25c476a4f15aa4355c233426c61576b",
+    "size_on_hub": 350
+   },
+   {
+    "bytes_downloaded": 231508,
+    "mode": "full",
+    "partial": false,
+    "path": "vocab.txt",
+    "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+    "size_on_hub": 231508
+   },
+   {
+    "bytes_downloaded": 22933664,
+    "mode": "full",
+    "partial": false,
+    "path": "openvino/openvino_model_qint8_quantized.bin",
+    "sha256": "c92ea4af3c6bc7b4a0f3b3d61b147c850f4dbdd7c9e7beee0c0c70dc12da289b",
+    "size_on_hub": 22933664
+   },
+   {
+    "bytes_downloaded": 23026053,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_qint8_arm64.onnx",
+    "sha256": "4278337fd0ff3c68bfb6291042cad8ab363e1d9fbc43dcb499fe91c871902474",
+    "size_on_hub": 23026053
+   },
+   {
+    "bytes_downloaded": 23026053,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_qint8_avx512.onnx",
+    "sha256": "4278337fd0ff3c68bfb6291042cad8ab363e1d9fbc43dcb499fe91c871902474",
+    "size_on_hub": 23026053
+   },
+   {
+    "bytes_downloaded": 23026053,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_qint8_avx512_vnni.onnx",
+    "sha256": "4278337fd0ff3c68bfb6291042cad8ab363e1d9fbc43dcb499fe91c871902474",
+    "size_on_hub": 23026053
+   },
+   {
+    "bytes_downloaded": 23046789,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_quint8_avx2.onnx",
+    "sha256": "b941bf19f1f1283680f449fa6a7336bb5600bdcd5f84d10ddc5cd72218a0fd21",
+    "size_on_hub": 23046789
+   },
+   {
+    "bytes_downloaded": 45212349,
+    "mode": "full",
+    "partial": false,
+    "path": "onnx/model_O4.onnx",
+    "sha256": "1667d7f3ba669048b13a96ee3a44456d5e42c8f44588ae8b603430e16160c485",
+    "size_on_hub": 45212349
+   },
+   {
+    "bytes_downloaded": 11416,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model.safetensors",
+    "sha256": "2291ac9b8d5083595cd6a1787e01d694a893af92bc706faf1511231affe822e8",
+    "size_on_hub": 90868376
+   }
+  ],
+  "sha": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+ },
+ "speechbrain/spkrec-ecapa-voxceleb": {
+  "downloads": 1830623,
+  "files": [
+   {
+    "bytes_downloaded": 5377,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "00f58c3cbd7a7510de9374080da0e82a4c4e8f4df567f7338fe6efe108be705a",
+    "size_on_hub": 5377
+   },
+   {
+    "bytes_downloaded": 51,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "15ff7afad09adec0936c31493a7397c13f855914f4579a8393fe82649778a664",
+    "size_on_hub": 51
+   },
+   {
+    "bytes_downloaded": 1919,
+    "mode": "full",
+    "partial": false,
+    "path": "hyperparams.yaml",
+    "sha256": "6f78854fa04ba59e761437b76a2575d3aba5e5016de3e9b69f0c9a5077fb1a41",
+    "size_on_hub": 1919
+   },
+   {
+    "bytes_downloaded": 128619,
+    "mode": "full",
+    "partial": false,
+    "path": "label_encoder.txt",
+    "sha256": "e13c3a167bb4112685670ee896d20e2b565af16b3a4ceeaa8689fa4d22adb8b9",
+    "size_on_hub": 128619
+   },
+   {
+    "bytes_downloaded": 1921,
+    "mode": "full",
+    "partial": false,
+    "path": "mean_var_norm_emb.ckpt",
+    "sha256": "cd70225b05b37be64fc5a95e24395d804231d43f74b2e1e5a513db7b69b34c33",
+    "size_on_hub": 1921
+   },
+   {
+    "bytes_downloaded": 5534328,
+    "mode": "full",
+    "partial": false,
+    "path": "classifier.ckpt",
+    "sha256": "fd9e3634fe68bd0a427c95e354c0c677374f62b3f434e45b78599950d860d535",
+    "size_on_hub": 5534328
+   }
+  ],
+  "sha": "0f99f2d0ebe89ac095bcc5903c4dd8f72b367286"
+ },
+ "sshleifer/tiny-gpt2": {
+  "downloads": 911228,
+  "files": [
+   {
+    "bytes_downloaded": 662,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "77a9e9830c3abeba929f5c61e0e97c398f98b4481ad75516c0be5bf038b340b0",
+    "size_on_hub": 662
+   },
+   {
+    "bytes_downloaded": 456318,
+    "mode": "full",
+    "partial": false,
+    "path": "merges.txt",
+    "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "size_on_hub": 456318
+   },
+   {
+    "bytes_downloaded": 90,
+    "mode": "full",
+    "partial": false,
+    "path": "special_tokens_map.json",
+    "sha256": "c0b3c279b6ecdb71996a86ffb4d4ab94dfdb5df95f00bac9515688faef2ff5dd",
+    "size_on_hub": 90
+   },
+   {
+    "bytes_downloaded": 26,
+    "mode": "full",
+    "partial": false,
+    "path": "tokenizer_config.json",
+    "sha256": "5e04eb606e3a1583530a42e36c2a6b6615c86f34fe77e44d9ddeb43ff940931f",
+    "size_on_hub": 26
+   },
+   {
+    "bytes_downloaded": 898669,
+    "mode": "full",
+    "partial": false,
+    "path": "vocab.json",
+    "sha256": "03087853bc70c618b66e7c7a43e787d2db4c469416beac9a483e53dad1f72f27",
+    "size_on_hub": 898669
+   },
+   {
+    "bytes_downloaded": 452120,
+    "mode": "full",
+    "partial": false,
+    "path": "tf_model.h5",
+    "sha256": "09166c56d46ec8eca5f1e46e4e4a62265fca5975a70a2b263c1795291a685cf7",
+    "size_on_hub": 452120
+   },
+   {
+    "bytes_downloaded": 2514146,
+    "mode": "full",
+    "partial": false,
+    "path": "pytorch_model.bin",
+    "sha256": "b706b24034032bdfe765ded5ab6403d201d295a995b790cb24c74becca5c04e6",
+    "size_on_hub": 2514146
+   }
+  ],
+  "sha": "5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be"
+ },
+ "timm/mobilenetv3_small_100.lamb_in1k": {
+  "downloads": 18461253,
+  "files": [
+   {
+    "bytes_downloaded": 4386,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "3950face80991c4f91fb1ead491d787639e08a737f948fd630dd938ae8f78c18",
+    "size_on_hub": 4386
+   },
+   {
+    "bytes_downloaded": 586,
+    "mode": "full",
+    "partial": false,
+    "path": "config.json",
+    "sha256": "07194b4b5f5140b0d1d1b80c49b6568b726c6e2f88858340cb7618061816b6e8",
+    "size_on_hub": 586
+   },
+   {
+    "bytes_downloaded": 10299673,
+    "mode": "full",
+    "partial": false,
+    "path": "pytorch_model.bin",
+    "sha256": "c66054da8dbd3453fecb5c3c842faef8e4e1fcdc71d68208cb577388ae191c5f",
+    "size_on_hub": 10299673
+   },
+   {
+    "bytes_downloaded": 21768,
+    "mode": "safetensors",
+    "partial": true,
+    "path": "model.safetensors",
+    "sha256": "74a7ea5a402c364f64140565cce5a4e131c445772ab52c02df113e2fa9bf090a",
+    "size_on_hub": 10241912
+   }
+  ],
+  "sha": "1824797e7887cbec1990e4adbd6675960a36c589"
+ },
+ "tornet-ml/tornado_detector_baseline_v1": {
+  "downloads": 5446,
+  "files": [
+   {
+    "bytes_downloaded": 1246,
+    "mode": "full",
+    "partial": false,
+    "path": "README.md",
+    "sha256": "102b74e9447df25904f358307b53e6567cdd96262b2f2d1c9e8f3f25316e5174",
+    "size_on_hub": 1246
+   },
+   {
+    "bytes_downloaded": 18793779,
+    "mode": "full",
+    "partial": false,
+    "path": "tornado_detector_baseline.keras",
+    "sha256": "1b698c122baa8b1ef2e218694ba853426f0ef4996c271fe3a0f2d0734e3a3185",
+    "size_on_hub": 18793779
+   }
+  ],
+  "sha": "b4d103aa9b2769d7c9258f84de89f876b0a22787"
+ }
+}

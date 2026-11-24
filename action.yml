@@ -1,0 +1,153 @@
+# Composite GitHub Action: scan model files (and notebooks/configs) for secrets, personal data and unsafe pickles.
+#
+# Security rules followed in this file:
+#   * no `${{ inputs.* }}` / `${{ github.event.* }}` inside a `run:` script - values travel through `env:` only, and the
+#     scanner reads them from the environment (nothing is ever interpreted by a shell);
+#   * every third-party action is pinned to a full commit SHA (the version is in the comment);
+#   * the scanner is installed from this action's own checkout (github.action_path), not from PyPI. pip still fetches the
+#     build backend (setuptools) and the optional h5py (with numpy) from PyPI, at the exact versions pinned in
+#     action-constraints.txt;
+#   * the scanner runs as `python -I -m ...`: isolated mode does not put the scanned repository's working directory on
+#     sys.path, so a file such as `json.py` in a pull request cannot shadow the standard library.
+name: "Limnex Preflight"
+description: "Static scan of ML model files, notebooks and configs for secrets, personal data and unsafe pickles. Never loads or executes the files."
+
+inputs:
+  path:
+    description: "File or folder to scan, relative to the workspace. One path; spaces, newlines and leading dashes are fine."
+    required: false
+    default: "."
+  fail-on:
+    description: "Fail (exit 1) when a finding at or above this severity exists: high, medium, low or none."
+    required: false
+    default: "medium"
+  changed-only:
+    description: "Scan only the files changed by the pull request / push (needs enough git history; otherwise everything is scanned and the log says so). Changed files are scanned whole."
+    required: false
+    default: "false"
+  sarif-file:
+    description: "Write a SARIF 2.1.0 report (masked values only) to this path. Empty = no SARIF."
+    required: false
+    default: ""
+  deep:
+    description: "Also carve provider-specific secrets out of raw tensor/binary payloads (slow on big files)."
+    required: false
+    default: "false"
+  exclude:
+    description: "Patterns to leave out of the scan, one per line (as the CLI's --exclude). Nothing is left out by default, so a file cannot be hidden from the scan by naming its folder node_modules or .venv; every exclusion is reported."
+    required: false
+    default: ""
+  fail-on-incomplete:
+    description: "Fail (exit 2) when a file could not be fully scanned: unreadable, 'Not scanned', scan budget exhausted, reduced coverage."
+    required: false
+    default: "false"
+  upload-sarif:
+    description: "Upload the SARIF file with github/codeql-action/upload-sarif. Off by default. Needs `security-events: write`; code scanning is free on public repositories and needs GitHub Advanced Security on private ones."
+    required: false
+    default: "false"
+  sarif-category:
+    description: "Code-scanning category used when upload-sarif is true."
+    required: false
+    default: "limnex-preflight"
+  base:
+    description: "Advanced: git revision to compare against instead of the event's own base (changed-only). Must be given together with changed-only."
+    required: false
+    default: ""
+  head:
+    description: "Advanced: git revision to compare (default HEAD) when `base` is given."
+    required: false
+    default: ""
+  python-version:
+    description: "Python version used for the scanner's private virtual environment. The caller's own Python is not changed."
+    required: false
+    default: "3.12"
+
+outputs:
+  findings-total:
+    description: "Number of findings (after the ignore file was applied)."
+    value: ${{ steps.scan.outputs.findings-total }}
+  findings-critical:
+    description: "Number of critical findings."
+    value: ${{ steps.scan.outputs.findings-critical }}
+  findings-high:
+    description: "Number of high findings."
+    value: ${{ steps.scan.outputs.findings-high }}
+  findings-medium:
+    description: "Number of medium findings."
+    value: ${{ steps.scan.outputs.findings-medium }}
+  findings-low:
+    description: "Number of low findings."
+    value: ${{ steps.scan.outputs.findings-low }}
+  findings-info:
+    description: "Number of info findings."
+    value: ${{ steps.scan.outputs.findings-info }}
+  highest-severity:
+    description: "critical, high, medium, low, info or none."
+    value: ${{ steps.scan.outputs.highest-severity }}
+  files-scanned:
+    description: "Number of files that were scanned."
+    value: ${{ steps.scan.outputs.files-scanned }}
+  files-not-scanned:
+    description: "Number of entries under Not scanned in the job summary (an unsupported file, a link that is not followed, an archive member left out ...), files whose scan failed included."
+    value: ${{ steps.scan.outputs.files-not-scanned }}
+  sarif-path:
+    description: "Absolute path of the SARIF file, or empty."
+    value: ${{ steps.scan.outputs.sarif-path }}
+  exit-code:
+    description: "0 clean, 1 findings at/above the threshold, 2 scanner error, nothing checked (a full scan that read no file), or incomplete scan (with fail-on-incomplete). Best effort when the step fails."
+    value: ${{ steps.scan.outputs.exit-code }}
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python for the scanner
+      id: py
+      uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+      with:
+        python-version: ${{ inputs.python-version }}
+        update-environment: false
+
+    - name: Install the scanner from this action's own checkout
+      id: install
+      shell: bash
+      env:
+        BASE_PYTHON: ${{ steps.py.outputs.python-path }}
+        ACTION_PATH: ${{ github.action_path }}
+        PIP_DISABLE_PIP_VERSION_CHECK: "1"
+      run: |
+        set -euo pipefail
+        export PIP_CONSTRAINT="${ACTION_PATH}/action-constraints.txt"   # exact versions
+        export PIP_BUILD_CONSTRAINT="${ACTION_PATH}/action-constraints.txt"   # the build backend too (pip 26.2+ needs both)
+        venv="${RUNNER_TEMP}/limnex-preflight-venv"
+        "$BASE_PYTHON" -I -m venv "$venv"
+        if [ -x "$venv/bin/python" ]; then vpy="$venv/bin/python"; else vpy="$venv/Scripts/python.exe"; fi
+        if ! "$vpy" -I -m pip install --quiet "${ACTION_PATH}[hdf5]"; then
+          echo "::warning title=h5py::h5py could not be installed; Keras/HDF5 files will be scanned with reduced coverage"
+          "$vpy" -I -m pip install --quiet "${ACTION_PATH}"
+        fi
+        echo "python=${vpy}" >> "$GITHUB_OUTPUT"
+
+    - name: Scan
+      id: scan
+      shell: bash
+      env:
+        VENV_PYTHON: ${{ steps.install.outputs.python }}
+        LIMNEX_PREFLIGHT_PATH: ${{ inputs.path }}
+        LIMNEX_PREFLIGHT_FAIL_ON: ${{ inputs.fail-on }}
+        LIMNEX_PREFLIGHT_CHANGED_ONLY: ${{ inputs.changed-only }}
+        LIMNEX_PREFLIGHT_SARIF_FILE: ${{ inputs.sarif-file }}
+        LIMNEX_PREFLIGHT_UPLOAD_SARIF: ${{ inputs.upload-sarif }}
+        LIMNEX_PREFLIGHT_DEEP: ${{ inputs.deep }}
+        LIMNEX_PREFLIGHT_FAIL_ON_INCOMPLETE: ${{ inputs.fail-on-incomplete }}
+        LIMNEX_PREFLIGHT_EXCLUDE: ${{ inputs.exclude }}
+        LIMNEX_PREFLIGHT_BASE: ${{ inputs.base }}
+        LIMNEX_PREFLIGHT_HEAD: ${{ inputs.head }}
+      run: |
+        exec "$VENV_PYTHON" -I -X utf8 -m limnex_preflight.ci
+
+    - name: Upload SARIF to code scanning (optional)
+      if: ${{ always() && inputs.upload-sarif == 'true' && steps.scan.outputs.sarif-path != '' }}
+      uses: github/codeql-action/upload-sarif@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
+      with:
+        sarif_file: ${{ steps.scan.outputs.sarif-path }}
+        category: ${{ inputs.sarif-category }}

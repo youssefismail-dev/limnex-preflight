@@ -1,0 +1,70 @@
+# Unit tests on every operating system and every Python version that pyproject.toml claims to support.
+# (tests/test_ci_files.py fails if the matrix below and the classifiers in pyproject.toml ever disagree.)
+name: tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pytest:
+    name: pytest (${{ matrix.os }}, Python ${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      # ubuntu-24.04, not ubuntu-latest: ubuntu-latest became Ubuntu 26.04, for which actions/setup-python has no Python
+      # 3.9 build (the oldest version pyproject.toml claims); 24.04 has every version from 3.9 to 3.14.
+      # Public repository (free minutes): the full matrix on every event.
+      matrix:
+        os: ["ubuntu-24.04", "windows-latest", "macos-latest"]
+        python: ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install the package and the test dependencies
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[test]"
+          # Optional libraries used to BUILD fixtures. If one has no wheel for this Python/OS, the tests that need it skip
+          # (reported by -ra below) instead of failing the whole matrix cell.
+          for pkg in numpy h5py onnx joblib scikit-learn pyyaml jsonschema; do
+            python -m pip install "$pkg" || echo "::warning title=optional dependency::$pkg could not be installed; dependent tests will skip"
+          done
+      - name: Run the tests
+        shell: bash
+        run: python -m pytest -ra --durations=10
+
+  package:
+    name: build and install the wheel
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Build, install into a clean venv, run the CLI and the action entry point
+        shell: bash
+        run: |
+          python -m pip install build
+          python -m build
+          python -m venv "$RUNNER_TEMP/wheel-venv"
+          "$RUNNER_TEMP/wheel-venv/bin/python" -m pip install dist/*.whl
+          "$RUNNER_TEMP/wheel-venv/bin/limnex-preflight" --version
+          "$RUNNER_TEMP/wheel-venv/bin/python" -I -c "import limnex_preflight.ci.action"

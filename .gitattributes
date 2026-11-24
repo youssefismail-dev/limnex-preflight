@@ -1,0 +1,24 @@
+# Development-only files: kept in the private development repository, left out of the public tree, which is built with
+# `git archive` (pre-release test 2026-11-19, finding F5: the checklist named the private branch and its history).
+RELEASE_CHECKLIST.md export-ignore
+tests/test_rename_checklist.py export-ignore
+# A proposal for the README written during the 2026-11-05 round (applied since, in its own words): a process note.
+evaluation/PROPOSED_README_EVALUATION_2026-11-05.md export-ignore
+# Per-repository results of the real-model scan (pre-release test 2, N1): even under pseudonyms, a repository's file
+# count and file types could be matched to the named lists and manifests, so only totals are published
+# (evaluation/results/hf_review.md, hf_totals.json). These files stay in the private development repository.
+evaluation/results/hf_v0_tuning.json export-ignore
+evaluation/results/hf_v0_heldout.json export-ignore
+evaluation/results/hf_final_tuning.json export-ignore
+evaluation/results/hf_final_heldout.json export-ignore
+evaluation/results/hf_heldout_first_look.json export-ignore
+# The 2026-11-05 study of 60 fresh repositories (decided 2026-11-20, after pre-release test 3, R10): its
+# per-repository rows and labels stay private, because a row can point at one repository's finding. The public reports
+# (REPORT_2026-11-05.md, COMPARE_LEAKS_2026-11-05.md) give totals only; the full versions are kept here.
+evaluation/REPORT_2026-11-05_FULL.md export-ignore
+evaluation/COMPARE_LEAKS_2026-11-05_FULL.md export-ignore
+evaluation/heldout_v2_report.py export-ignore
+evaluation/results/heldout_v2.json export-ignore
+evaluation/results/heldout_v2_tables.md export-ignore
+evaluation/results/compare_leaks.json export-ignore
+evaluation/results/compare_leaks_labels.json export-ignore

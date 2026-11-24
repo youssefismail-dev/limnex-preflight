@@ -1,0 +1,11 @@
+# Exact versions of everything the GitHub Action installs from PyPI into its private virtual environment (applied with
+# PIP_CONSTRAINT, so they also bind pip's isolated build environment). The scanner itself has no dependencies; these are
+# the build backend and the optional HDF5 reader. Re-pin deliberately, to releases that are at least a few weeks old,
+# and keep one line per supported Python range (tests/test_ci_files.py checks that every line is an exact pin).
+setuptools==80.10.2
+h5py==3.14.0 ; python_version < "3.10"
+h5py==3.16.0 ; python_version >= "3.10"
+numpy==2.0.2 ; python_version < "3.10"
+numpy==2.2.6 ; python_version == "3.10"
+numpy==2.4.6 ; python_version == "3.11"
+numpy==2.5.3 ; python_version >= "3.12"

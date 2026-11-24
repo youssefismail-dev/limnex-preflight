@@ -1,0 +1,18 @@
+# .github/workflows/preflight.yml  -  the smallest useful setup (pin the action to a full commit SHA in real use)
+name: preflight
+on: [pull_request]
+permissions:
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15                # a hung step must not hold the runner for GitHub's default 6 hours
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0               # on pull requests the ignore file is read from the base commit
+          persist-credentials: false
+          lfs: true                    # weights kept in Git LFS are checked, not their pointers
+      - uses: youssefismail-dev/limnex-preflight@v0.1.0
+        with:
+          path: models/

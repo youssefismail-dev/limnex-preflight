@@ -1,0 +1,40 @@
+# .github/workflows/preflight.yml  -  every option: changed files only on pull requests, everything on pushes to main,
+# SARIF in the Security tab, strict about files that could not be scanned (pin the action to a full commit SHA in real use).
+name: preflight
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  security-events: write   # only needed because upload-sarif is on; code scanning is free on public repositories and
+                           # needs GitHub Advanced Security on private ones - drop upload-sarif and this line otherwise
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30                # a hung step must not hold the runner for GitHub's default 6 hours
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0               # changed-only needs history; with a shallow clone it scans everything and says so
+          persist-credentials: false
+          lfs: true                    # weights kept in Git LFS are checked, not their pointers
+      - id: preflight
+        uses: youssefismail-dev/limnex-preflight@v0.1.0
+        with:
+          path: models/
+          fail-on: medium              # high | medium (default) | low | none
+          changed-only: ${{ github.event_name == 'pull_request' }}
+          sarif-file: preflight.sarif
+          upload-sarif: "true"         # uploads with github/codeql-action/upload-sarif (pinned inside the action)
+          fail-on-incomplete: "true"   # fail when a file was unreadable / not scanned
+      - name: Show the result even when the scan failed
+        if: always()
+        shell: bash
+        env:
+          TOTAL: ${{ steps.preflight.outputs.findings-total }}
+          HIGHEST: ${{ steps.preflight.outputs.highest-severity }}
+          CODE: ${{ steps.preflight.outputs.exit-code }}
+        run: echo "findings=$TOTAL highest=$HIGHEST exit-code=$CODE"

@@ -1,0 +1,59 @@
+# Held-out batch: chosen BEFORE looking at any of its findings and disjoint from hf_models.txt.
+# It was scanned only after the detection rules had been tuned on hf_models.txt, to check that the tuning generalises.
+
+# --- PyTorch pickles / checkpoints
+hf-internal-testing/tiny-random-bert
+huawei-noah/TinyBERT_General_4L_312D
+microsoft/resnet-18
+google/electra-small-discriminator
+EleutherAI/pythia-14m
+prajjwal1/bert-mini
+community-repo-829
+Ultralytics/YOLOv8
+keremberke/yolov8n-table-extraction
+Ultralytics/YOLOv5
+boltzgen/boltzgen-1
+community-repo-548
+
+# --- safetensors headers / ONNX
+Qwen/Qwen3-0.6B
+HuggingFaceTB/SmolLM2-135M
+mistralai/Mistral-7B-v0.1
+Xenova/distilbert-base-uncased-finetuned-sst-2-english
+Xenova/whisper-tiny.en
+
+# --- Keras / HDF5
+keras-io/ocr-for-captcha
+Genereux-akotenou/genomics-tf-prediction
+StockCast/gru
+jonyyd/howest-hf-ai
+
+# --- scikit-learn / joblib / pickle
+daxa-ai/pebblo-classifier
+NullRabbit/nr-network-known-class-detector
+FarhanKO/heart-disease-prediction
+community-repo-586
+community-repo-274
+community-repo-295
+
+# --- NumPy npz / npy
+ggml-org/models-moved
+pnnbao-ump/VieNeu-TTS-v3-Nano
+KittenML/kitten-tts-nano-0.8-fp32
+
+# --- CatBoost
+Arthamna/dataquest-model
+AbraMuhara/AgeClassificationTDDI2024
+vishnushenoy09/catboost-tennis-bounce
+SimpleFunctions/sf-ml-baseline
+Builder-Neekhil/relationship-longevity-predictor
+
+# (google/embeddinggemma-300m was tried but is gated: HTTP 401, so dropped)
+# --- notebooks in model repos
+litert-community/gemma-4-E2B-it-litert-lm
+nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16
+
+# --- GGUF (first 16 MB only)
+TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF
+unsloth/gemma-3-270m-it-GGUF
+QuantFactory/SmolLM-135M-GGUF

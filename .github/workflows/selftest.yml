@@ -1,0 +1,202 @@
+# Self-test of the composite action (`uses: ./`) on small generated fixture folders, plus dogfooding on this repository.
+# Fixtures are generated at run time (tests/action_fixtures.py): the planted fake secret and the booby-trapped pickle are
+# never stored in the repository. A step that is EXPECTED to fail has continue-on-error and a following step that asserts
+# its outcome, so "failed as intended" is checked rather than merely tolerated.
+name: selftest
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: selftest-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  clean-and-bad:
+    name: clean passes, bad fails (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      # Public repository (free minutes): the full matrix on every event.
+      matrix:
+        os: ["ubuntu-latest", "windows-latest", "macos-latest"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Build the fixture folders
+        shell: bash
+        run: |
+          python tests/action_fixtures.py clean "$RUNNER_TEMP/fx/clean"
+          python tests/action_fixtures.py bad "$RUNNER_TEMP/fx/bad"
+
+      - name: A clean folder must pass
+        id: clean
+        uses: ./
+        with:
+          path: ${{ runner.temp }}/fx/clean
+          sarif-file: ${{ runner.temp }}/clean.sarif
+      - name: Assert the clean folder passed with zero findings
+        shell: bash
+        env:
+          OUTCOME: ${{ steps.clean.outcome }}
+          TOTAL: ${{ steps.clean.outputs.findings-total }}
+          HIGHEST: ${{ steps.clean.outputs.highest-severity }}
+        run: |
+          test "$OUTCOME" = "success"
+          test "$TOTAL" = "0"
+          test "$HIGHEST" = "none"
+          python tests/action_fixtures.py check-sarif "$RUNNER_TEMP/clean.sarif" --max-results 0
+
+      - name: A planted fake secret plus a booby-trapped pickle must fail with exit 1
+        id: bad
+        continue-on-error: true
+        uses: ./
+        with:
+          path: ${{ runner.temp }}/fx/bad
+          sarif-file: ${{ runner.temp }}/bad.sarif
+      - name: Assert it failed, for the right reason, with only masked values in the SARIF
+        if: always()
+        shell: bash
+        env:
+          OUTCOME: ${{ steps.bad.outcome }}
+          EXIT_CODE: ${{ steps.bad.outputs.exit-code }}
+        run: |
+          test "$OUTCOME" = "failure"
+          # exit-code is best effort when the composite step fails; if present it must be exactly 1 (2 would be a scanner error)
+          test "${EXIT_CODE:-1}" = "1"
+          # a SARIF file with BOTH findings proves the scan completed (a scanner error would have produced none)
+          python tests/action_fixtures.py check-sarif "$RUNNER_TEMP/bad.sarif" --rules aws-access-key-id,unsafe-pickle-exec --min-results 2
+
+      - name: fail-on none reports but does not fail
+        id: report_only
+        uses: ./
+        with:
+          path: ${{ runner.temp }}/fx/bad
+          fail-on: none
+      - name: Assert report-only mode
+        shell: bash
+        env:
+          OUTCOME: ${{ steps.report_only.outcome }}
+          CRITICAL: ${{ steps.report_only.outputs.findings-critical }}
+          HIGHEST: ${{ steps.report_only.outputs.highest-severity }}
+        run: |
+          test "$OUTCOME" = "success"
+          test "$CRITICAL" = "1"
+          test "$HIGHEST" = "critical"
+
+  changed-only:
+    name: changed-only picks up only the changed file
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Build a throw-away git repository with three commits
+        id: repo
+        shell: bash
+        run: python tests/action_fixtures.py changed "$RUNNER_TEMP/chg" >> "$GITHUB_OUTPUT"
+
+      # c1 -> c2 changes ok.json only; legacy_bad.json (planted secret) is untouched and must NOT be scanned
+      - name: changed-only, only the clean file changed
+        id: only_ok
+        uses: ./
+        with:
+          path: ${{ runner.temp }}/chg
+          changed-only: "true"
+          base: ${{ steps.repo.outputs.c1 }}
+          head: ${{ steps.repo.outputs.c2 }}
+      - name: Assert exactly one file was scanned and nothing was found
+        shell: bash
+        env:
+          OUTCOME: ${{ steps.only_ok.outcome }}
+          FILES: ${{ steps.only_ok.outputs.files-scanned }}
+          TOTAL: ${{ steps.only_ok.outputs.findings-total }}
+        run: |
+          test "$OUTCOME" = "success"
+          test "$FILES" = "1"
+          test "$TOTAL" = "0"
+
+      # the same repository without changed-only: the planted secret is found (proves the previous pass was not vacuous)
+      - name: Full scan of the same repository must fail
+        id: full
+        continue-on-error: true
+        uses: ./
+        with:
+          path: ${{ runner.temp }}/chg
+          sarif-file: ${{ runner.temp }}/full.sarif
+      - name: Assert the full scan failed because of the planted secret
+        if: always()
+        shell: bash
+        env:
+          OUTCOME: ${{ steps.full.outcome }}
+        run: |
+          test "$OUTCOME" = "failure"
+          python tests/action_fixtures.py check-sarif "$RUNNER_TEMP/full.sarif" --rules aws-access-key-id --min-results 1
+
+      # c2 -> c3 changes legacy_bad.json only: it is scanned (whole) and fails
+      - name: changed-only, the file with the planted secret changed
+        id: only_bad
+        continue-on-error: true
+        uses: ./
+        with:
+          path: ${{ runner.temp }}/chg
+          changed-only: "true"
+          base: ${{ steps.repo.outputs.c2 }}
+          head: ${{ steps.repo.outputs.c3 }}
+          sarif-file: ${{ runner.temp }}/only_bad.sarif
+      - name: Assert it failed with exactly the one finding from the changed file
+        if: always()
+        shell: bash
+        env:
+          OUTCOME: ${{ steps.only_bad.outcome }}
+        run: |
+          test "$OUTCOME" = "failure"
+          python tests/action_fixtures.py check-sarif "$RUNNER_TEMP/only_bad.sarif" --rules aws-access-key-id --min-results 1 --max-results 1
+
+      # an unknown base commit: must fall back to scanning everything (and fail on the planted secret), never pass silently
+      - name: Unknown base commit falls back to a full scan
+        id: fallback
+        continue-on-error: true
+        uses: ./
+        with:
+          path: ${{ runner.temp }}/chg
+          changed-only: "true"
+          base: ${{ steps.repo.outputs.c3 }}~99
+      - name: Assert the fallback scanned everything
+        if: always()
+        shell: bash
+        env:
+          OUTCOME: ${{ steps.fallback.outcome }}
+        run: test "$OUTCOME" = "failure"
+
+  dogfood:
+    name: dogfood - scan this repository with the action
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # .preflightignore (repository root) accepts, by fingerprint, the fake values that tests/ and evaluation/ plant on
+      # purpose. ANY other finding - README, docs, workflows, action.yml, the package, results - fails this job and is a
+      # real problem to look at, not something to silence.
+      - name: Scan the repository (fail on anything, even LOW)
+        uses: ./
+        with:
+          path: .
+          fail-on: low
+          sarif-file: dogfood.sarif
