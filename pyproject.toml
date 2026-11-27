@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "limnex-preflight"
-version = "0.1.1"
+version = "0.1.2"
 description = "Scan ML model files for secrets, personal data and unsafe pickles before you publish them to Hugging Face, Kaggle or GitHub."
 readme = "README.md"
 requires-python = ">=3.9"

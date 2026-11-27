@@ -13,6 +13,6 @@ jobs:
           fetch-depth: 0               # on pull requests the ignore file is read from the base commit
           persist-credentials: false
           lfs: true                    # weights kept in Git LFS are checked, not their pointers
-      - uses: youssefismail-dev/limnex-preflight@v0.1.1
+      - uses: youssefismail-dev/limnex-preflight@v0.1.2
         with:
           path: models/

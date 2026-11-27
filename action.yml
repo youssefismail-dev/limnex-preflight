@@ -10,7 +10,10 @@
 #   * the scanner runs as `python -I -m ...`: isolated mode does not put the scanned repository's working directory on
 #     sys.path, so a file such as `json.py` in a pull request cannot shadow the standard library.
 name: "Limnex Preflight"
-description: "Static scan of ML model files, notebooks and configs for secrets, personal data and unsafe pickles. Never loads or executes the files."
+description: "Scan ML model files, notebooks and configs for secrets, personal data and unsafe pickles, without loading them."
+branding:                                # GitHub Marketplace: the description must stay under 125 characters
+  icon: "shield"
+  color: "blue"
 
 inputs:
   path:

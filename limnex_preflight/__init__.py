@@ -3,6 +3,6 @@
 from .models import Finding, Severity
 from .scanner import ScanOptions, ScanResult, scan_paths
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 __all__ = ["Finding", "Severity", "ScanOptions", "ScanResult", "scan_paths", "__version__"]

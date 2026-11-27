@@ -11,7 +11,7 @@ Part of the Limnex family of AI-security tools ([limnex-uie](https://github.com/
 > tested on real-world malicious model files.
 
 **Quick start:** `pip install limnex-preflight`, then `limnex-preflight path/to/model-or-folder`. Exit code 1 means a
-finding at MEDIUM or above. In GitHub Actions: `uses: youssefismail-dev/limnex-preflight@v0.1.1`
+finding at MEDIUM or above. In GitHub Actions: `uses: youssefismail-dev/limnex-preflight@v0.1.2`
 ([setup](https://github.com/youssefismail-dev/limnex-preflight#use-in-github-actions)); before a commit: [pre-commit](https://github.com/youssefismail-dev/limnex-preflight#pre-commit).
 
 > Why this exists: a model file I published contained my Kaggle user name inside a file path that the training
@@ -49,7 +49,7 @@ my-model/data/train.csv
       first: line 2    value: a***@e***.org
       ... and 36 more in this file (-v lists each one with its fingerprint)
 
-limnex-preflight 0.1.1: scanned 4 file(s): 1 critical, 1 high, 40 medium, 1 low
+limnex-preflight 0.1.2: scanned 4 file(s): 1 critical, 1 high, 40 medium, 1 low
 ```
 
 (Output shortened. Every value above is invented. Reports **never** contain a full secret or personal value.)
@@ -279,7 +279,7 @@ f20fdec205d55c2c   # my own Colab folder is public on purpose
 
 The scanner is also a **composite GitHub Action** (`action.yml` at the root of the repository). It installs the scanner from
 the action's own checkout (not from PyPI) into a private virtual environment, so your own Python and dependencies are not
-touched. The examples use the `v0.1.1` tag for readability; in real workflows pin actions to a full commit SHA.
+touched. The examples use the `v0.1.2` tag for readability; in real workflows pin actions to a full commit SHA.
 
 **Minimal** (scan `models/` on every pull request; fails on MEDIUM and above, the default):
 
@@ -294,7 +294,7 @@ jobs:
           fetch-depth: 0               # on pull requests the ignore file is read from the base commit
           persist-credentials: false   # the job's token is not left in .git/config
           lfs: true                    # weights kept in Git LFS are checked, not their pointers
-      - uses: youssefismail-dev/limnex-preflight@v0.1.1
+      - uses: youssefismail-dev/limnex-preflight@v0.1.2
         with: { path: models/ }
 ```
 
@@ -310,7 +310,7 @@ permissions:
 steps:
   - uses: actions/checkout@v7
     with: { fetch-depth: 0, persist-credentials: false, lfs: true }   # history for changed-only; LFS files
-  - uses: youssefismail-dev/limnex-preflight@v0.1.1
+  - uses: youssefismail-dev/limnex-preflight@v0.1.2
     with:
       path: models/
       fail-on: medium
@@ -429,7 +429,7 @@ hook as well, add `files: '.*'` under the hook in your config:
 ```yaml
 repos:
   - repo: https://github.com/youssefismail-dev/limnex-preflight
-    rev: v0.1.1
+    rev: v0.1.2
     hooks:
       - id: limnex-preflight
         files: '^models/.*'                        # optional

@@ -1,7 +1,7 @@
 # .pre-commit-config.yaml of a repository that publishes models
 repos:
   - repo: https://github.com/youssefismail-dev/limnex-preflight
-    rev: v0.1.1
+    rev: v0.1.2
     hooks:
       - id: limnex-preflight
         # optional: only look at the model folder

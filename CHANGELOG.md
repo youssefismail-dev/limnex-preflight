@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2 (2026-11-27)
+
+* The GitHub Action can be listed in the GitHub Marketplace: a shorter description (the Marketplace allows under 125
+  characters), and an icon and colour. The examples and the README use `v0.1.2`. Nothing in the scanner changed.
+
 ## 0.1.1 (2026-11-27)
 
 * **fastai learners: fastai's own methods are no longer reported.** In 0.1.0 every fastai learner failed
