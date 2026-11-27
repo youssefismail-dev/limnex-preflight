@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from .branding import REPO_URL, SARIF_FINGERPRINT_KEY, TOOL_NAME
 from .detectors import ALL_REGEX_RULES, EXTRA_RULES, RULES_BY_ID
-from .models import Finding, Note, Severity
+from .models import Finding, Note, Severity, first_of, grouped
 from .sanitize import path_bytes, safe_result, visible
 from .scanner import ScanResult
 
@@ -212,8 +212,23 @@ def to_human(result: ScanResult, version: str, *, colour: bool = False, verbose:
         by_file.setdefault(f.file, []).append(f)
     for file, items in by_file.items():
         out.append(visible(file))
-        for f in items:
+        for members in grouped(items):
+            f = members[0]
             tag = paint(f.severity, f"[{f.severity.label.upper():8}]")
+            if len(members) > 1:   # one group: same rule and severity, 4 or more in this file
+                f = first_of(members)
+                out.append(f"  {tag} {f.rule_id}  {len(members)} findings")
+                out.append(f"      {RULES_BY_ID[f.rule_id].title}")
+                out.append(f"      first: {visible(f.location)}    value: {f.masked}")
+                if verbose:
+                    for m in members:
+                        more = f"  (x{m.count})" if m.count > 1 else ""
+                        out.append(f"      - {visible(m.location)}    value: {m.masked}    fingerprint: {m.fingerprint}{more}")
+                        for loc in m.more_locations:   # as for a single finding (tester of 0.1.1, L2)
+                            out.append(f"          also:  {visible(loc)}")
+                else:
+                    out.append(f"      ... and {len(members) - 1} more in this file (-v lists each one with its fingerprint)")
+                continue
             more = f"  (x{f.count})" if f.count > 1 else ""
             out.append(f"  {tag} {f.rule_id}{more}")
             out.append(f"      {f.message}")

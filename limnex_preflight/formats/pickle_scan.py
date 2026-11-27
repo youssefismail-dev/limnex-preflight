@@ -20,6 +20,7 @@ from typing import Dict, List, Optional, Tuple
 from ..context import ScanContext, MB
 from ..detectors import MODE_BINARY, MODE_FULL, MODE_SECRETS
 from ..masking import clean
+from .fastai_pairs import FASTAI_SOURCE_PAIRS
 
 # --------------------------------------------------------------------------------------
 # Deny-list of unsafe globals (module, name). A deny-list is never complete: see README.
@@ -40,6 +41,36 @@ IO_BUILTINS = {"open", "setattr", "delattr", "vars", "globals", "locals", "dir",
 # all getattr(<a detection-model head class>, "forward"), in the tuning set (none in the held-out set).
 # It is deliberately tiny. Add names only with an observed, benign checkpoint to point at.
 GETATTR_ALLOWED = frozenset({"forward"})
+# fastai stores some of its own bound methods on its objects (FilteredBase.__init__ keeps `self.dataloaders`, transforms
+# keep `before_call`), so every fastai export holds getattr(<fastai object or class>, <method>). These are quiet only as
+# EXACT (module, class, name) triples, and only when the object was made from that class in a way that names it (see
+# _getattr_owner): fastcore's GetAttr forwards names a class does not define to another object, which a pickle chooses, so
+# "any name on a fastai class" would not be safe. Each name resolves by normal lookup to a method in fastai's own source
+# (checked at fastai 2.8.12). This adds no new power: fastai is not deny-listed, so a pickle could already name the same
+# function directly. Calling what getattr returned is still pickle-computed-callable. A user's own subclass (__main__.X)
+# is never on the list. Two parts (CHANGELOG, 0.1.1): the 11 pairs read by hand after the 0.1.1 study, and
+# FASTAI_SOURCE_PAIRS, generated from fastai's source by method and inheritance (every fastai method fastai's own code uses
+# as a value, on every fastai class that reaches it by normal lookup; fastai 2.8.12 and 2.7.19).
+_FASTAI_STUDY_PAIRS = frozenset({
+    ("fastai.data.core", "TfmdLists", "dataloaders"),
+    ("fastai.data.core", "Datasets", "dataloaders"),
+    ("fastai.tabular.core", "TabularPandas", "dataloaders"),
+    ("fastai.vision.augment", "Flip", "before_call"),
+    ("fastai.vision.augment", "Brightness", "before_call"),
+    ("fastai.vision.augment", "Resize", "before_call"),
+    ("fastai.vision.augment", "RandomResizedCrop", "before_call"),
+    ("fastai.vision.augment", "RandomResizedCropGPU", "before_call"),
+    ("fastai.vision.core", "PILImage", "create"),
+    ("fastai.torch_core", "TensorImage", "lighting"),
+    ("fastai.text.models.awdlstm", "WeightDropout", "_do_nothing"),
+})
+FASTAI_GETATTR_ALLOWED = _FASTAI_STUDY_PAIRS | FASTAI_SOURCE_PAIRS
+# fastai 2.8 saves learners with cloudpickle, which writes the same bound methods as
+# _builtin_type('MethodType')(<function>, <object>): a call on what a call returned. fastai_method_binding() keeps that
+# quiet only for listed triples (CHANGELOG 0.1.1); stored code (_builtin_type('CodeType'), _make_function) stays reported.
+_CLOUDPICKLE_BUILTIN_TYPE = ("cloudpickle.cloudpickle", "_builtin_type")
+# Opcodes that create an object FROM the class they name (copyreg._reconstructor(cls, ...) is handled apart).
+_CLASS_NAMING_OPS = frozenset({"NEWOBJ", "NEWOBJ_EX", "OBJ", "INST"})
 DANGEROUS_ATTRS = frozenset({
     # process execution (os / subprocess / pty / posix families)
     "system", "popen", "popen2", "popen3", "popen4", "fork", "forkpty", "kill", "killpg", "startfile", "abort", "_exit",
@@ -166,10 +197,10 @@ class _Bytes:
 
 
 class _Obj:
-    __slots__ = ("callable", "args", "state")
+    __slots__ = ("callable", "args", "state", "op")
 
-    def __init__(self, callable_, args):
-        self.callable, self.args, self.state = callable_, args, None
+    def __init__(self, callable_, args, op: Optional[str] = None):
+        self.callable, self.args, self.state, self.op = callable_, args, None, op  # op: the opcode that made it
 
 
 _STRING_OPS = {"UNICODE", "SHORT_BINUNICODE", "BINUNICODE", "BINUNICODE8", "STRING", "BINSTRING", "SHORT_BINSTRING"}
@@ -285,6 +316,91 @@ class _Bounded:
 
 
 PLAIN_READING = " (as a plain pickle loader reads it)"
+
+
+_RECLASSED = "BUILD:__class__"   # the op of an object whose BUILD state may change its class: no certain owner
+
+
+def _may_reclass(state: object) -> bool:
+    """Could this BUILD state change the object's class? The loader applies a (state, slotstate) pair's slot state with
+    setattr, so {'__class__': X} there makes the object an X (review of 0.1.1, finding 3: a Flip re-classed this way
+    handed out another class's method). A slot state that cannot be seen, or a full one (keys past the container limit
+    are not kept), may hold it too. In the main state '__class__' only lands in __dict__ with the default loader, but a
+    class's own __setstate__ could use it, so it counts as well. A state the scan cannot see at all (what a call returned,
+    a module attribute, anything unknown) may be such a pair, so it counts too (tester of 0.1.1, L1: it fell through to
+    "cannot change")."""
+    unseen = (_Obj, _Unknown, _G)
+
+    def may_hold(d: object) -> bool:   # a seen dict that holds '__class__', or a full one, or one not seen at all
+        return isinstance(d, unseen) or (isinstance(d, dict) and ("__class__" in d or len(d) >= _MAX_CONTAINER))
+
+    if isinstance(state, unseen) or isinstance(state, dict):
+        return may_hold(state)
+    if isinstance(state, tuple) and len(state) == 2:
+        main, slots = state
+        if slots is not None and not isinstance(slots, dict):
+            return True
+        return may_hold(slots) or may_hold(main)
+    return False
+
+
+def getattr_name_is_high(attr: str) -> bool:
+    """True for an attribute name that getattr may never take quietly (HIGH, unsafe-pickle-io), whatever the object:
+    special __names__, the dangerous-name list, and module names. Checked before any allow-list."""
+    bare = attr.lstrip("_")
+    return (attr.startswith("__") and attr.endswith("__")) or attr in DANGEROUS_ATTRS or attr in EXEC_MODULES \
+        or attr in IO_MODULES or bare in EXEC_MODULES or bare in IO_MODULES or bare in ("builtins", "builtin")
+
+
+def _getattr_owner(target: object) -> Optional[Tuple[str, str]]:
+    """(module, class) that getattr's first argument certainly belongs to, or None. Certain only for the class itself, an
+    object made from it by an opcode that names the class (NEWOBJ, NEWOBJ_EX, OBJ, INST), or copyreg._reconstructor(cls,
+    ...), and only while no BUILD state may have changed its class (_may_reclass). Anything a plain call returned (REDUCE
+    of some function or class) has no known class."""
+    if isinstance(target, _G):
+        return target.module, target.name
+    if not isinstance(target, _Obj) or not isinstance(target.callable, _G):
+        return None
+    if target.op in _CLASS_NAMING_OPS:
+        return target.callable.module, target.callable.name
+    if target.op == "REDUCE" and (target.callable.module, target.callable.name) in _RECONSTRUCTORS \
+            and isinstance(target.args, tuple) and target.args and isinstance(target.args[0], _G):
+        return target.args[0].module, target.args[0].name
+    return None
+
+
+def _function_by_class(f: object) -> Optional[Tuple[str, str, str]]:
+    """(module, class, name) of a function named through its class: getattr(<global C>, 'm') (protocol 2) or the global
+    'C.m' (protocol 4 and later). None for anything else: code stored in the file, what another call returned, ..."""
+    if isinstance(f, _G):
+        parts = f.name.split(".")
+        return (f.module, parts[0], parts[1]) if len(parts) == 2 and all(parts) else None
+    if (isinstance(f, _Obj) and f.op == "REDUCE" and isinstance(f.callable, _G)
+            and f.callable.module in ("builtins", "__builtin__") and f.callable.name == "getattr"
+            and isinstance(f.args, tuple) and len(f.args) == 2 and isinstance(f.args[0], _G)
+            and "." not in f.args[0].name and isinstance(f.args[1], str)):
+        return f.args[0].module, f.args[0].name, f.args[1]
+    return None
+
+
+def fastai_method_binding(obj: "_Obj") -> bool:
+    """Amendment 3 (tester of 0.1.1, B2): is this call cloudpickle making a bound method of fastai's own method on fastai's
+    own object? cloudpickle writes a bound method as _builtin_type('MethodType')(<function>, <object>). True only when
+    the callable is exactly what cloudpickle.cloudpickle._builtin_type('MethodType') returned, there are exactly two
+    arguments, the function is named through its class with a listed (module, class, name) triple and a name that is not
+    HIGH, and the object's class is certain (_getattr_owner) with its own triple listed for that name. Making a bound
+    method runs no code; calling it later is still a call on a call's result."""
+    fn = obj.callable
+    if not (obj.op == "REDUCE" and isinstance(fn, _Obj) and fn.op == "REDUCE" and isinstance(fn.callable, _G)
+            and (fn.callable.module, fn.callable.name) == _CLOUDPICKLE_BUILTIN_TYPE and fn.args == ("MethodType",)):
+        return False
+    if not (isinstance(obj.args, tuple) and len(obj.args) == 2):
+        return False
+    triple = _function_by_class(obj.args[0])
+    if triple is None or getattr_name_is_high(triple[2]) or triple not in FASTAI_GETATTR_ALLOWED:
+        return False
+    owner = _getattr_owner(obj.args[1])
+    return owner is not None and (owner[0], owner[1], triple[2]) in FASTAI_GETATTR_ALLOWED
 
 
 class _Walker:
@@ -529,33 +645,33 @@ class _Walker:
                 elif name == "INST":
                     module, _, nm = str(arg).partition(" ")
                     args = self.pop_mark()
-                    inst = _Obj(_G(module, nm), tuple(args))
+                    inst = _Obj(_G(module, nm), tuple(args), "INST")
                     self.push(inst)
                     self.check_global(module, nm, pos, name)
                     self.on_reduce(inst, pos, name)
                 elif name == "OBJ":
                     items = self.pop_mark()
                     cls = items[0] if items else _UNK
-                    inst = _Obj(cls, tuple(items[1:]))
+                    inst = _Obj(cls, tuple(items[1:]), "OBJ")
                     self.push(inst)
                     self.on_reduce(inst, pos, name)
                 elif name == "REDUCE":
                     a = self.pop()
                     fn = self.pop()
-                    obj = _Obj(fn, a)
+                    obj = _Obj(fn, a, "REDUCE")
                     self.push(obj)
                     self.on_reduce(obj, pos, name)
                 elif name == "NEWOBJ":
                     a = self.pop()
                     cls = self.pop()
-                    inst = _Obj(cls, a)
+                    inst = _Obj(cls, a, "NEWOBJ")
                     self.push(inst)
                     self.on_reduce(inst, pos, name)
                 elif name == "NEWOBJ_EX":
                     self.pop()
                     a = self.pop()
                     cls = self.pop()
-                    inst = _Obj(cls, a)
+                    inst = _Obj(cls, a, "NEWOBJ_EX")
                     self.push(inst)
                     self.on_reduce(inst, pos, name)
                 elif name == "BUILD":
@@ -563,6 +679,8 @@ class _Walker:
                     obj = self.top()
                     if isinstance(obj, _Obj):
                         obj.state = state
+                        if _may_reclass(state):
+                            obj.op = _RECLASSED      # its class is no longer certain (_getattr_owner)
                         if not self.plain and _is_array_wrapper(obj) and isinstance(state, dict):
                             self.joblib_array(f, state, pos)
                         elif (self.text_data and isinstance(obj.callable, _G) and obj.callable.name == "_reconstruct"
@@ -600,6 +718,8 @@ class _Walker:
         if isinstance(fn, _Obj):
             if self.plain:
                 return  # array bytes read as instructions call whatever is on the stack: noise, not a finding
+            if fastai_method_binding(obj):
+                return  # cloudpickle binding fastai's own listed method to its own object (fastai 2.8 exports)
             # the callable is the RESULT of another call (a resolver, a factory): what it is cannot be known statically,
             # so a human looks. Fail-closed, like getattr with an unknown attribute name.
             self.ctx.add("pickle-computed-callable", f"{op}@{pos}", "call on the result of another call", self.loc(pos, op),
@@ -626,15 +746,17 @@ class _Walker:
         if not isinstance(attr, str):
             self._getattr_finding("unsafe-pickle-io", "builtins.getattr(<computed attribute name>)", pos, op)
             return
-        bare = attr.lstrip("_")
+        # dangerous names first: no allow-list (the fastai one included) can make them quiet
+        if getattr_name_is_high(attr):
+            self._getattr_finding("unsafe-pickle-io", f"builtins.getattr({attr!r})", pos, op)
+            return
         if attr in GETATTR_ALLOWED:
             return
-        if (attr.startswith("__") and attr.endswith("__")) or attr in DANGEROUS_ATTRS or attr in EXEC_MODULES \
-                or attr in IO_MODULES or bare in EXEC_MODULES or bare in IO_MODULES or bare in ("builtins", "builtin"):
-            self._getattr_finding("unsafe-pickle-io", f"builtins.getattr({attr!r})", pos, op)
-        else:
-            # not known-dangerous, not known-benign: a human decides. Never silently dropped.
-            self._getattr_finding("pickle-getattr-review", f"builtins.getattr({attr!r})", pos, op)
+        owner = _getattr_owner(args[0]) if args else None
+        if owner is not None and (owner[0], owner[1], attr) in FASTAI_GETATTR_ALLOWED:
+            return
+        # not known-dangerous, not known-benign: a human decides. Never silently dropped.
+        self._getattr_finding("pickle-getattr-review", f"builtins.getattr({attr!r})", pos, op)
 
     def _getattr_finding(self, rule_id: str, value: str, pos: int, op: str) -> None:
         self.ctx.add(rule_id, value, clean(value, 100), self.loc(pos, op), message=f"{_RULE_TITLES[rule_id]}: {value}")

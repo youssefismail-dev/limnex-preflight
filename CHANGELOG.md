@@ -1,5 +1,93 @@
 # Changelog
 
+## 0.1.1 (2026-11-27)
+
+* **fastai learners: fastai's own methods are no longer reported.** In 0.1.0 every fastai learner failed
+  `--fail-on medium` on fastai's own methods (`dataloaders`, a transform's `before_call`), which fastai keeps on the
+  objects it saves: as `getattr(<object>, <method>)` in fastai 2.7 and earlier (Python's pickle), and as a bound method
+  written by cloudpickle in fastai 2.8 (`pickle-computed-callable`). Both are now quiet for exact (module, class, method)
+  triples, only on the class itself or an object created by naming that class whose saved state cannot change its class
+  (README, "How `getattr` is handled"). **fastai 2.4-2.7 exports now pass, unless they also keep methods of code
+  outside fastai** (spaCy tokenizers, Python's regular expressions, also through fastai's `RegexLabeller`, libraries built
+  on fastai, third-party transforms), which stay under review on purpose; fastai v1 was not tested. **Most fastai 2.8
+  learners still fail by default**, because cloudpickle stores compiled code in the file: fastai's `PILBase.create` in
+  every image and segmentation learner, and the functions their author wrote (below).
+  The list is built from fastai's own source, 2.7.19 and 2.8.12 read as text: every fastai method that fastai's code
+  uses as a value, on every fastai class that reaches it by normal lookup (193 triples; a method fastai patches onto a
+  class from another module is listed under both modules, as Python 3.13 and later name it through its own module). Dangerous `getattr` names are
+  now checked before any allow-list, so no allow-list can make one quiet.
+  * **How the first list was chosen and checked:** 40 public fastai repositories, picked and split in half by a fixed rule before any
+    file was opened, scanned on Kaggle. The allow-list comes only from the first half. On the other half (20
+    repositories, 23 files), never looked at before the fix was written: files that fail the default threshold went
+    from 23 to 4, and `pickle-getattr-review` findings from 60 to 5. Of those 5, two are fastai methods that the first
+    half did not contain (not added after seeing this set; both are covered by the list from fastai's source, below), and
+    three belong to
+    code outside fastai (a library built on fastai, and Python's regular expressions), which stays under review on
+    purpose. Two of the 4 failing files (one repository) also fail on `pickle-computed-callable`, unchanged. No other
+    finding changed in any of the 44 files.
+  * Text models that tokenize with spaCy keep up to four review findings (`pipe`, and the regular-expression `search`,
+    `match` and `finditer` their tokenizer stores), all outside fastai.
+  * **fastai 2.8** (from the pre-release test): `Learner.export` saves with cloudpickle, which writes a bound method as
+    `_builtin_type('MethodType')(<function>, <object>)`. That is quiet when the function is named through its class
+    with a listed triple and the object was made by naming a class listed for that name; any other use of `_builtin_type`,
+    code stored in the file, bindings outside fastai and calling the bound method stay reported. cloudpickle cannot write
+    fastai's `PILImage.create` / `PILMask.create` (a classmethod that `ImageBlock` and `MaskBlock` keep) by name, so it
+    stores the compiled code of `PILBase.create`: one `pickle-computed-callable` finding for the code and one per image or
+    mask class bound to it (2 for an image classifier, 3 for a segmentation learner). They stay, because a static scan
+    cannot tell
+    fastai's compiled code from anyone else's, and it runs when the model is used. Functions and classes the model's
+    author wrote (a label function, a lambda in a `DataBlock`, a custom transform) are stored as code too and reported
+    the same way. These findings' fingerprints include their position in the file, so they can change when the model is
+    exported again (README, ignore file). Recognising fastai's own compiled code is a candidate for 0.2. **Checked** on 20 public fastai 2.8 exports, picked in a fixed random order before any
+    was downloaded and opened only after the rule was written: `pickle-computed-callable` findings went from 225 to 42
+    and no fastai method is left under review, but all 20 still fail: 10 only on the stored `create` code, 4 only on
+    spaCy, 6 also on their author's own code or on personal data. On the 64 files of the earlier checks, failing files
+    went from 21 to 3, 23 to 4 and 20 to 1; no other finding changed in any of the 110 files (64 of the earlier sets, 24 of
+    the 2.8 study, 22 of its held-out set; the file lists are kept private).
+* **Repeated findings are grouped** (from the user review: one CSV gave 200 separate findings). When one file has 4 or
+  more findings at MEDIUM or below of the same rule at the same severity, the human report shows them as one block ("33
+  findings", the earliest as an example, `-v` lists each with its fingerprint); the Action gives one annotation and one
+  job-summary row per group, with the group's fingerprints in a fold-out list. HIGH, CRITICAL and unsafe-code findings
+  are never grouped. Nothing else changes: every finding is still found, counted in the totals, accepted one by one
+  through the ignore file, and listed in the JSON and SARIF reports; exit codes are the same.
+* **From the independent review of this release (8/10)**, fixed before it:
+  * Grouping hid which dangerous callables a pickle names (four in one file showed as one block naming only the
+    first): unsafe-code, HIGH and CRITICAL findings now always stay one entry each, and a group's example is the earliest
+    line or, without lines, the smallest byte offset (it was the first one found).
+  * The job summary no longer gave the fingerprints of grouped findings, so accepting one from CI needed the SARIF file:
+    they are back, in a fold-out list per group.
+  * An object re-classed by its saved state (`BUILD` with `__class__` in its slot state) kept the fastai pair quiet: such
+    an object, or one whose slot state the scan cannot see, now has no certain class, so `getattr` on it is reviewed as
+    in 0.1.0. This gave a malicious file nothing new (see the next point), but the wording "made from that very class"
+    was not true; the README now says what is checked.
+  * The README now says plainly that protocol-4 dotted names reach methods that are not on the dangerous-name lists with
+    no finding (true in 0.1.0 too), so the `getattr` review tier catches surprises in honest files, not a file written
+    to avoid it. Sending such dotted names to review is for 0.2, after measuring its false alarms.
+  * The spaCy count above was "one review finding"; it is up to four.
+  * Whole fastai learner families still failed on fastai's own methods (U-Net segmentation: `Hook.hook_fn`,
+    `PILMask.create`; collaborative filtering: `TabularCollab.dataloaders`; keypoints: `TensorPoint.create`), because the
+    first list held only the 11 pairs seen in 20 repositories. The list now comes from fastai's source by method and
+    inheritance (above); the rule was written down before the list was generated, and it reproduces all 11 first pairs
+    and the review's examples. The two fastai methods the held-out set had shown (`ProgressCallback._write_stats`,
+    `dataloaders` on `FilteredBase` itself) are covered by the same rule. **Checked on a new held-out set** (the next 20
+    eligible repositories of the same Hub listing, picked by rank after the list was committed, opened only in the
+    check): files failing the default threshold went from 20 to 1, and `pickle-getattr-review` findings from 62 to 1
+    (a regular expression's `search`, Python's own code, which stays under review). No other finding changed in any of
+    the 64 files of the three sets.
+* **From the pre-release test of this release (failed, fixed before it):**
+  * A file whose location text held "offset" and a number with a leading zero (a JSON or metadata key such as
+    `"timezone offset 0100"`) made the human report and the Action stop with an internal error once grouping chose an
+    example. The number after "offset" is now read in base 10 only, and choosing an example can never fail. (When a
+    key itself holds "offset" and a number, the example shown may not be the earliest; see 0.2.)
+  * fastai 2.8 learners kept failing on fastai's own methods (cloudpickle; above).
+  * From Python 3.13, pickle names the class of a method that fastai adds from another module (`@patch`) through that
+    module (`TensorImage.lighting` under `fastai.vision.augment`): such methods are listed under both modules (4 pairs).
+  * An object whose saved state the scan cannot see at all (what a call returned) could keep a pair quiet; it now has no
+    certain class, like one with an unseen slot state.
+  * `-v` lists the other places of grouped findings again (`also:`), and the job summary lists the fingerprints of every
+    group, also past its 50 table rows (up to 200 per group and 2000 in all).
+  * `evaluation/fastai_pairs_from_source.py` runs on Python 3.9 and checks the wheels' full SHA-256.
+
 ## 0.1.0 (2026-11-24)
 
 The first public release of Limnex Preflight (developed privately as `limnex-modelscan`).
@@ -171,13 +259,22 @@ The first public release of Limnex Preflight (developed privately as `limnex-mod
 
 ## Planned for 0.2
 
-* From the user review: fewer review findings on standard fastai learners (12 of 16 MEDIUM findings on real fastai
-  repositories were `pickle-getattr-review` false alarms; the allow-list needs to know the owning module); TensorBoard
-  event files; pickle findings located by field name (`TrainingArguments.output_dir`) as well as by offset; notebook
+* From the user review: TensorBoard event files; pickle findings located by field name (`TrainingArguments.output_dir`) as well as by offset; notebook
   annotations on the line of the raw `.ipynb`; a shorter README with the evaluation moved to `docs/`. From its retest:
-  a Keras Lambda layer in an `.h5` file found from the raw `model_config` when `h5py` is not installed; repeated
-  findings grouped per file and rule; overlapping command-line paths (`x.pkl` and `./x.pkl`) scanned once. From its second
+  a Keras Lambda layer in an `.h5` file found from the raw `model_config` when `h5py` is not installed; overlapping command-line paths (`x.pkl` and `./x.pkl`) scanned once. From its second
   retest: a compressed `.keras` weights member read in pieces by the HDF5 reader too (it is held whole today).
+* Keep each finding's byte offset as its own field, for the group's example and for SARIF's `byteOffset`, instead of
+  reading it back from the location text (a key holding "offset 0100" is read as offset 100; SARIF the same since
+  0.1.0); sort findings by line and offset as numbers, not as text (pre-release test of 0.1.1).
+* Fingerprints for computed calls and stored code based on what they contain, not on their position in the file
+  (today they change when a model is exported again), so accepting fastai 2.8 findings survives a re-export.
+* The pickle walker follows more of what a file can do while it loads: `NEWOBJ_EX` keyword arguments, dictionary keys
+  that are not plain constants, attributes set on classes and modules, and the calls the loader itself makes while it
+  restores objects (from the follow-up review of 0.1.1). Needed before any rule that makes stored code quiet.
+* Recognise fastai's own compiled code (`PILBase.create`) in fastai 2.8 exports, with its own check: compare the whole
+  function (code, constants, every saved global, defaults, closure) with forms compiled, never run, from the pinned
+  wheels for each Python and cloudpickle version; only bound to a `PILBase` class; anything else reported as today.
+* `getattr(..., "forward")` quiet only on model classes, not on any object (review of 0.1.1, finding 9).
 * Faster on very long single tokens (a 50 MB run of word characters takes about a minute).
 * An allow-list review tier for pickles: any import outside known-safe ML modules is reported for review, so an
   attacker gains nothing by picking a callable the deny-list does not know. Measured on the held-out sets before it ships.

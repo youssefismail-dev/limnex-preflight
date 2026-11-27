@@ -19,7 +19,9 @@ def mk(i, sev, rule="email-address", file="a.json"):
 
 
 def test_annotations_are_capped_per_level_with_a_plus_n_more_line():
-    findings = [mk(i, Severity.MEDIUM) for i in range(25)] + [mk(100 + i, Severity.HIGH) for i in range(12)] + [mk(200, Severity.LOW)]
+    # one finding per file: 4 or more of one rule in ONE file are a single group since 0.1.1 (tests/test_grouping.py)
+    findings = ([mk(i, Severity.MEDIUM, file=f"m{i}.json") for i in range(25)]
+                + [mk(100 + i, Severity.HIGH, file=f"h{i}.json") for i in range(12)] + [mk(200, Severity.LOW)])
     lines = c.finding_annotations(findings, ".")
     assert sum(l.startswith("::error ") for l in lines) == 10
     assert sum(l.startswith("::warning ") for l in lines) == 10

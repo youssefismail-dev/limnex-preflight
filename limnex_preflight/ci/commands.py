@@ -13,7 +13,8 @@ import re
 import secrets
 from typing import Dict, List, Optional
 
-from ..models import Finding, Severity
+from ..detectors import RULES_BY_ID
+from ..models import Finding, Severity, first_of, grouped
 from ..sanitize import no_surrogates as visible_bytes
 from ..sanitize import visible
 
@@ -47,18 +48,24 @@ def finding_annotations(findings: List[Finding], workspace: str, cap: int = MAX_
     out: List[str] = []
     used: Dict[str, int] = {}
     omitted = 0
-    for f in sorted(findings, key=lambda x: (-int(x.severity), x.file, x.rule_id)):
+    for members in grouped(sorted(findings, key=lambda x: (-int(x.severity), x.file, x.rule_id))):
+        f = first_of(members)
         level = _LEVEL[f.severity]
         if report_only and level == "error":
             level = "warning"
         if used.get(level, 0) >= cap:
-            omitted += 1
+            omitted += len(members)
             continue
         used[level] = used.get(level, 0) + 1
         top = f.file.split("!/", 1)[0]
+        inner = f" in {f.file}" if "!/" in f.file else ""
+        if len(members) > 1:   # one annotation for a group (same file, rule and severity, 4 or more)
+            text = f"{len(members)} x {RULES_BY_ID[f.rule_id].title}{inner}; first [{f.masked}] at {f.location}"
+        else:
+            text = f"{f.message} [{f.masked}] at {f.location}{inner}"
         out.append(annotation(
             level,
-            visible(f"{f.message} [{f.masked}] at {f.location}" + (f" in {f.file}" if "!/" in f.file else "")),
+            visible(text),
             file=workspace_relative(top, workspace),
             line=f.line,
             title=f"{f.rule_id} ({f.severity.label})",

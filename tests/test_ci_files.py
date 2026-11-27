@@ -213,9 +213,10 @@ def test_precommit_hook_passes_any_case_env_variants_and_files_without_an_extens
 
 
 def test_example_workflows_exist_and_use_the_released_action():
+    from limnex_preflight import __version__
     from limnex_preflight.branding import REPO_URL
 
-    released = REPO_URL.replace("https://github.com/", "") + "@v0.1.0"
+    released = REPO_URL.replace("https://github.com/", "") + "@v" + __version__    # the tag of this release
     for rel in ("examples/github-action-minimal.yml", "examples/github-action-full.yml"):
         doc, text = load(rel)
         assert released in text and "OWNER/REPO" not in text

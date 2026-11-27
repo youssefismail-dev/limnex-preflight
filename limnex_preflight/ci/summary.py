@@ -6,13 +6,15 @@ import re
 from typing import List, Optional
 
 from ..branding import DISPLAY_NAME
-from ..models import Severity
+from ..models import Severity, first_of, grouped
 from ..report import file_counts, not_scanned_entries, severity_counts
 from ..sanitize import safe_result, visible
 from ..scanner import ScanResult
 
 MAX_ROWS = 50
 MAX_NOTES = 25
+MAX_GROUP_FINGERPRINTS = 200   # per group in the fold-out list; the summary has a size limit, the SARIF/JSON has them all
+MAX_LISTED_FINGERPRINTS = 2000   # in the whole fold-out list (about 60 KB, well inside GitHub's 1 MiB summary limit)
 _MD_SPECIAL = re.compile(r"([\\`*_{}\[\]<>()#+\-!|~])")
 
 
@@ -62,11 +64,40 @@ def build_summary(result: ScanResult, *, version: str, fail_on: Optional[Severit
         lines.append("")
         lines.append("| severity | rule | file | where | value | fingerprint |")
         lines.append("|---|---|---|---|---|---|")
-        for f in result.findings[:MAX_ROWS]:
-            lines.append(f"| {f.severity.label} | {code(f.rule_id)} | {code(f.file, 80)} | {code(f.location, 80)} | {code(f.masked, 60)} | {code(f.fingerprint)} |")
-        if len(result.findings) > MAX_ROWS:
+        items = grouped(result.findings)
+        for members in items[:MAX_ROWS]:
+            f = first_of(members)
+            if len(members) > 1:   # one row for a group (same file, rule and severity, 4 or more)
+                lines.append(f"| {f.severity.label} | {code(f.rule_id)} ({len(members)} findings) | {code(f.file, 80)} | "
+                             f"first: {code(f.location, 80)} | {code(f.masked, 60)} | {len(members)} fingerprints (listed below) |")
+            else:
+                lines.append(f"| {f.severity.label} | {code(f.rule_id)} | {code(f.file, 80)} | {code(f.location, 80)} | {code(f.masked, 60)} | {code(f.fingerprint)} |")
+        rest = sum(len(m) for m in items[MAX_ROWS:])
+        if rest:
             lines.append("")
-            lines.append(f"… and {len(result.findings) - MAX_ROWS} more finding(s); use the SARIF/JSON report for the full list.")
+            lines.append(f"… and {rest} more finding(s); use the SARIF/JSON report for the full list.")
+        # every group, also those past the table's rows (tester of 0.1.1, L3); review of 0.1.1, finding 5: accepting a
+        # grouped finding needs its fingerprint, without -v or SARIF
+        groups = [m for m in items if len(m) > 1]
+        if groups:
+            lines.append("")
+            lines.append("<details><summary>Fingerprints of the grouped findings (for .preflightignore)</summary>")
+            lines.append("")
+            budget = MAX_LISTED_FINGERPRINTS
+            for members in groups:
+                if budget <= 0:
+                    lines.append(f"- … the other grouped findings are in the SARIF/JSON report (this list stops at "
+                                 f"{MAX_LISTED_FINGERPRINTS} fingerprints)")
+                    break
+                f = first_of(members)
+                take = min(len(members), MAX_GROUP_FINGERPRINTS, budget)
+                budget -= take
+                shown = ", ".join(code(m.fingerprint) for m in members[:take])
+                more = len(members) - take
+                lines.append(f"- {code(f.rule_id)} in {code(f.file, 80)}: {shown}"
+                             + (f", … and {more} more in the SARIF/JSON report" if more > 0 else ""))
+            lines.append("")
+            lines.append("</details>")
     errors = result.errors
     degraded = [n for n in result.notes if n.kind == "degraded"]
     skipped = not_scanned_entries(result)

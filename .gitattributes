@@ -22,3 +22,7 @@ evaluation/results/heldout_v2.json export-ignore
 evaluation/results/heldout_v2_tables.md export-ignore
 evaluation/results/compare_leaks.json export-ignore
 evaluation/results/compare_leaks_labels.json export-ignore
+# The 0.1.1 fastai study (2026-11-23): its design and its file lists name real repositories, so they stay private;
+# the public CHANGELOG reports totals only.
+evaluation/FASTAI_FIX_DESIGN.md export-ignore
+evaluation/results/fastai_* export-ignore

@@ -22,7 +22,7 @@ jobs:
           persist-credentials: false
           lfs: true                    # weights kept in Git LFS are checked, not their pointers
       - id: preflight
-        uses: youssefismail-dev/limnex-preflight@v0.1.0
+        uses: youssefismail-dev/limnex-preflight@v0.1.1
         with:
           path: models/
           fail-on: medium              # high | medium (default) | low | none
